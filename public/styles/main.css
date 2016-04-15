@@ -10,10 +10,6 @@
   padding: 0;
 }
 
-html {
-  
-}
-
 body {
   margin: 120px 0 0 0;
   font-family: 'Open Sans', arial, sans-serif;
@@ -48,7 +44,7 @@ p:last-child {
 
 main {
   min-height: calc(100vh - 60px - 40px);
-  background: url('../images/banner.jpg') no-repeat center center fixed;
+  background: url('../images/compressed/lossy/banner.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
