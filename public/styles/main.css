@@ -233,6 +233,100 @@ section header h2 {
   padding-top: 80px;
 }
 
+#social .social-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* calendar */
+#calendar .calendar-container {
+  display: flex;
+  justify-content: center;
+}
+
+#calendar .events {
+  flex-basis: 600px;
+}
+
+#calendar .event {
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #96359e;
+}
+
+#calendar .event:first-child {
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+
+#calendar .event:last-child {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+#calendar .event .event-container {
+  display: flex; 
+  padding: 20px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+#calendar .event .countdown-container {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #40B1DB;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#calendar .event:hover {
+  border-color: #40B1DB;
+}
+
+#calendar .event:hover .countdown-container {
+  opacity: 1;
+}
+
+#calendar .event:hover .event-container {
+  opacity: 0;
+}
+
+#calendar .event .countdown {
+  display: flex;
+}
+
+#calendar .event .event-date {
+  border: 1px solid #40B1DB;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#calendar .event .event-info {
+  padding: 10px 20px;
+}
+
+#calendar .countdown-container .event-info {
+  padding: 30px 40px;
+}
+
+#calendar .event .event-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#calendar .event .event-place {
+  font-size: 16px;
+}
+
 /* videos */
 #videos h2,
 #videos .subscribe {
