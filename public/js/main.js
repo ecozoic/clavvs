@@ -83,18 +83,22 @@ document.addEventListener('DOMContentLoaded', function() {
       var seconds = event.querySelector('.seconds .counter');
 
       if (time.total <= 0) {
-        days.innerHTML = 0;
-        hours.innerHTML = 0;
-        minutes.innerHTML = 0;
-        seconds.innerHTML = 0;
+        days.innerHTML = '00';
+        hours.innerHTML = '00';
+        minutes.innerHTML = '00';
+        seconds.innerHTML = '00';
 
         events[index] = null;
       } else {
-        days.innerHTML = time.days;
-        hours.innerHTML = time.hours;
-        minutes.innerHTML = time.minutes;
-        seconds.innerHTML = time.seconds;
+        days.innerHTML = getCounter(time.days);
+        hours.innerHTML = getCounter(time.hours);
+        minutes.innerHTML = getCounter(time.minutes);
+        seconds.innerHTML = getCounter(time.seconds);
       }
     });
+  }
+
+  function getCounter(count) {
+    return count >= 10 ? count : '0' + count; 
   }
 });
