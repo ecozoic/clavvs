@@ -255,13 +255,13 @@ section header h2 {
 }
 
 #calendar .event:first-child {
-  border-top-right-radius: 2px;
-  border-top-left-radius: 2px;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
 }
 
 #calendar .event:last-child {
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
 #calendar .event .event-container {
@@ -300,6 +300,7 @@ section header h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 15px;
 }
 
 #calendar .event .countdown .counter {
@@ -319,7 +320,7 @@ section header h2 {
 
 #calendar .event .event-date {
   border: 1px solid #40B1DB;
-  border-radius: 2px;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -382,6 +383,11 @@ section header h2 {
   flex-wrap: wrap;
   padding-left: 80px;
   padding-right: 80px;
+}
+
+#photos .photos-container img {
+  border: 1px solid #40B1DB;
+  border-radius: 4px;
 }
 
 /* contact */
