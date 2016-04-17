@@ -180,6 +180,11 @@ section header h2 {
   margin-right: 20px;
 }
 
+#releases .release img {
+  border: 1px solid #40B1DB;
+  border-radius: 4px;
+}
+
 #releases .release:last-child {
   margin-right: 0;
 }
