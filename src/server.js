@@ -1,5 +1,3 @@
-require('dotenv-safe').load();
-
 var path = require('path');
 var express = require('express');
 var compression = require('compression');
@@ -30,6 +28,6 @@ app.use(function(req, res, next) {
   res.status(404).sendFile(path.resolve(__dirname, '../public/404.html'));
 })
 
-app.listen(process.env.PORT, function() {
+app.listen(process.env.PORT || 9000, function() {
   console.log('Server listening on port: ' + process.env.PORT);
 });
