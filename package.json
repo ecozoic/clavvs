@@ -7,7 +7,10 @@
     "start": "node src/server/index.js",
     "postinstall": "npm run build",
     "clean": "rimraf public",
-    "build": "npm run clean && webpack"
+    "build": "npm run clean && webpack",
+    "dev": "npm run build -- --watch",
+    "local": "heroku local web",
+    "deploy": "git push heroku master"
   },
   "author": "John Mitchell <johnnn.mitchell@gmail.com>",
   "license": "ISC",
