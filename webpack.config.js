@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 var CopyPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -7,9 +8,10 @@ module.exports = {
   entry: ['./index'],
   output: {
     path: path.resolve('public/js'),
-    filename: 'app.js',
-    sourceMapFilename: 'app.js.map'
+    filename: 'app.js'
   },
+
+  devtool: 'source-map',
 
   plugins: [
     new CopyPlugin([
@@ -17,7 +19,13 @@ module.exports = {
       { from: path.resolve('src/client/*.html'), to: path.resolve('public') },
       { from: path.resolve('src/client/*.ico'), to: path.resolve('public') }
     ]),
-    new ExtractTextPlugin('../css/app.css')
+    new ExtractTextPlugin('../css/app.css'),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: false,
+      compress: {
+        warnings: false
+      }
+    })
   ],
 
   module: {
@@ -25,7 +33,7 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss?sourceMap!sass?sourceMap')
       },
       {
         test: /\.js$/,
