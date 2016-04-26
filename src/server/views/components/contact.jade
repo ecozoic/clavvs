@@ -1,0 +1,22 @@
+section#contact
+  header
+    h2
+      span.bold Contact&nbsp;
+      span.light Us
+  .form-container
+    form
+      .form-group
+        input#name(type="text" required)
+        label(for="name")
+          span Name
+      .form-group
+        input#email(type="text" required)
+        label(for="email")
+          span Email
+      .form-group
+        textarea#message(rows="5")
+        label(for="message")
+          span Message
+      button#send(type="button")
+        i.fa.fa-spinner.fa-pulse
+        | Send
