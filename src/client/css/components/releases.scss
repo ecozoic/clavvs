@@ -1,0 +1,27 @@
+#releases .releases-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#releases .release {
+  margin-right: 20px;
+}
+
+#releases .release img {
+  border: 1px solid $primary-color;
+  border-radius: 4px;
+}
+
+#releases .release:last-child {
+  margin-right: 0;
+}
+
+#releases .release .release-label,
+#videos .video .video-label {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 24px;
+  border-top: 2px solid $foreground-color;
+  margin-top: 5px;
+}

@@ -1,0 +1,24 @@
+#videos h2,
+#videos .subscribe {
+  margin-bottom: 30px;
+}
+
+#videos .subscribe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#videos .videos-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#videos .video {
+  margin-right: 20px;
+}
+
+#videos .video:last-child {
+  margin-right: 0;
+}
