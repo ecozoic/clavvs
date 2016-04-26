@@ -1,112 +1,116 @@
-#calendar .calendar-container {
-  display: flex;
-  justify-content: center;
-}
+#calendar {
+  .calendar-container {
+    display: flex;
+    justify-content: center;
+  }
 
-#calendar .events {
-  flex-basis: 1100px;
-}
+  .events {
+    flex-basis: 1100px;
+  }
 
-#calendar .event {
-  position: relative;
-  cursor: pointer;
-  border: 1px solid $secondary-color;
-}
+  .event {
+    position: relative;
+    cursor: pointer;
+    border: 1px solid $secondary-color;
 
-#calendar .event:first-child {
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
-}
+    &:first-child {
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+    }
 
-#calendar .event:last-child {
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
+    &:last-child {
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
 
-#calendar .event .event-container {
-  display: flex;
-  padding: 20px;
-  opacity: 1;
-  transition: opacity 0.2s ease;
-}
+    &:hover {
+      border-color: $primary-color;
 
-#calendar .event .countdown-container {
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: $primary-color;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
+      .countdown-container {
+        opacity: 1;
+      }
 
-#calendar .event:hover {
-  border-color: $primary-color;
-}
+      .event-container {
+        opacity: 0;
+      }
+    }
 
-#calendar .event:hover .countdown-container {
-  opacity: 1;
-}
+    .event-container {
+      display: flex;
+      padding: 20px;
+      opacity: 1;
+      transition: opacity 0.2s ease;
+    }
 
-#calendar .event:hover .event-container {
-  opacity: 0;
-}
+    .countdown-container {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background: $primary-color;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
 
-#calendar .event .countdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 15px;
-}
+    .countdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 15px;
 
-#calendar .event .countdown .counter {
-  font-size: 40px;
-  background: $background-color;
-  margin: 0 5px;
-  padding: 0 5px;
-  border-radius: 4px;
-  font-weight: 300;
-  color: $secondary-color;
-}
+      .counter {
+        font-size: 40px;
+        background: $background-color;
+        margin: 0 5px;
+        padding: 0 5px;
+        border-radius: 4px;
+        font-weight: 300;
+        color: $secondary-color;
+      }
 
-#calendar .event .countdown .label {
-  text-align: center;
-  color: $foreground-color;
-}
+      .label {
+        text-align: center;
+        color: $foreground-color;
+      }
+    }
 
-#calendar .event .event-date {
-  border: 1px solid $primary-color;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  font-size: 16px;
-}
+    .event-date {
+      border: 1px solid $primary-color;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      font-size: 16px;
+    }
 
-#calendar .event .event-info {
-  padding: 10px 20px;
-  margin-left: 10px;
-}
+    .event-info {
+      padding: 10px 20px;
+      margin-left: 10px;
+    }
 
-#calendar .countdown-container .event-info {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  margin-left: 30px;
-}
+    .event-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
 
-#calendar .event .event-name {
-  font-size: 18px;
-  font-weight: 600;
-}
+    .event-place {
+      font-size: 16px;
+    }
+  }
 
-#calendar .event .event-place {
-  font-size: 16px;
+  .countdown-container {
+    .event-info {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      margin-left: 30px;
+    }
+  }
 }

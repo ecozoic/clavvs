@@ -7,17 +7,17 @@
   border-top: 1px solid $primary-color;
   border-bottom: 1px solid $primary-color;
   padding-bottom: 0;
-}
 
-#quote h4 {
-  font-size: 18px;
-  font-weight: 800;
-  text-transform: uppercase;
-  border-top: 1px solid $primary-color;
-  border-bottom: 1px solid $primary-color;
-  letter-spacing: 3px;
-  text-align: center;
-  line-height: 1.8;
-  padding: 10px 0;
-  max-width: 1105px;
+  h4 {
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-top: 1px solid $primary-color;
+    border-bottom: 1px solid $primary-color;
+    letter-spacing: 3px;
+    text-align: center;
+    line-height: 1.8;
+    padding: 10px 0;
+    max-width: 1105px;
+  }
 }

@@ -11,47 +11,42 @@
   border-bottom: 1px solid $secondary-color;
   z-index: 1000;
   background-color: $background-color;
-}
 
-#header .thumbnail-container {
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
-  overflow: hidden;
-  transition: border-radius 0.3s ease;
-}
+  .thumbnail-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    overflow: hidden;
+    transition: border-radius 0.3s ease;
 
-#header .thumbnail-container:hover {
-  border-radius: 0;
-}
+    &:hover {
+      border-radius: 0;
+    }
+  }
 
-#header ul,
-#footer ul {
-  display: flex;
-}
+  ul {
+    display: flex;
 
-#header ul li,
-#footer ul li {
-  text-transform: uppercase;
-  font-size: 16px;
-  margin-right: 40px;
-}
+    li {
+      text-transform: uppercase;
+      font-size: 16px;
+      margin-right: 40px;
 
-#header ul li:last-child,
-#footer ul li:last-child {
-  margin-right: 0;
-}
+      &:last-child {
+        margin-right: 0;
+      }
 
-#header ul li a,
-#footer ul li a {
-  transition: color 0.3s ease;
-}
+      a {
+        transition: color 0.3s ease;
 
-#header ul li a:hover,
-#footer ul li a:hover {
-  color: $primary-color;
-}
+        &:hover {
+          color: $primary-color;
+        }
+      }
 
-#header ul li i {
-  margin-right: 5px;
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
 }

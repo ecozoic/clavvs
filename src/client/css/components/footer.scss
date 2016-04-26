@@ -6,8 +6,26 @@
   height: 40px;
   width: 100%;
   background-color: $background-color;
-}
 
-#footer ul li {
-  font-size: 18px;
+  ul {
+    display: flex;
+
+    li {
+      font-size: 18px;
+      text-transform: uppercase;
+      margin-right: 40px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
 }

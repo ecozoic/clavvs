@@ -1,24 +1,33 @@
-#videos h2,
-#videos .subscribe {
-  margin-bottom: 30px;
-}
+#videos {
+  h2, .subscribe {
+    margin-bottom: 30px;
+  }
 
-#videos .subscribe {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .subscribe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-#videos .videos-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+  .videos-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
-#videos .video {
-  margin-right: 20px;
-}
+  .video {
+    margin-right: 20px;
 
-#videos .video:last-child {
-  margin-right: 0;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .video-label {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 24px;
+      border-top: 2px solid $foreground-color;
+      margin-top: 5px;
+    }
+  }
 }

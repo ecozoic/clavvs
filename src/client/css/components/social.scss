@@ -1,5 +1,10 @@
 #social {
   padding-top: 80px;
+
+  .social-container {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 #social .social-container {

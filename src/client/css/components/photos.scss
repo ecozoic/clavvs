@@ -4,9 +4,9 @@
   flex-wrap: wrap;
   padding-left: 80px;
   padding-right: 80px;
-}
 
-#photos .photos-container img {
-  border: 1px solid $primary-color;
-  border-radius: 4px;
+  img {
+    border: 1px solid $primary-color;
+    border-radius: 4px;
+  }
 }
