@@ -16,7 +16,6 @@ module.exports = {
   plugins: [
     new CopyPlugin([
       { from: path.resolve('src/client/img'), to: path.resolve('public/img') },
-      { from: path.resolve('src/client/*.html'), to: path.resolve('public') },
       { from: path.resolve('src/client/*.ico'), to: path.resolve('public') }
     ]),
     new ExtractTextPlugin('../css/app.css'),

@@ -1,0 +1,191 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="description" content="clavvs atlanta music")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="icon" href="/favicon.ico")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet")
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet")
+    link(href="css/app.css" rel="stylesheet")
+    title CLAVVS
+  body
+    #fb-root
+    script.
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    header#header
+      .thumbnail-container
+        a(href="http://blueowlmedia.com/clawsatl/")
+          img(src="img/thumbnail.jpg" alt="thumbnail" width="100" height="100")
+      nav
+        ul
+          li
+            a(href="https://www.facebook.com/clavvsatl")
+              i.fa.fa-facebook
+              span Facebook
+          li
+            a(href="https://twitter.com/clavvsatl")
+              i.fa.fa-twitter
+              span Twitter
+          li
+            a(href="https://soundcloud.com/clavvsatl")
+              i.fa.fa-soundcloud
+              span Soundcloud
+          li
+            a(href="https://www.youtube.com/c/Clavvstv")
+              i.fa.fa-youtube
+              span Youtube
+          li
+            a(href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1")
+              i.fa.fa-spotify
+              span Spotify
+    main#main
+      section#banner
+        .logo-container
+          img(src="img/logo.jpg" width="1024" height="237" alt="logo")
+      section#bio
+        p CLAVVS is a band that almost wasn’t. If not for a chance meeting at a house party in Atlanta one summer night in 2013, Amber Renee might never have met Graham Marsh, and the pair might never have realized their shared love for hiphop and Radiohead. Unbeknownst to them, that same love would ultimately evolve into a musical partnership fronted by Amber and produced by Graham, the four-time Grammy winner behind artists like Gnarls Barkley, T.I. and Kid Cudi.
+        p Over two years later, their music has since been featured on Largehearted Boy, Jam in the Van, and Noisetrade, among others, and on the air via Album88 and Anti-Robot Radio. CLAVVS will also be featured in the Atlanta episode of The Music Voyager, a PBS series following the lives of creatives in the city. CLAVVS’ released their first single “Sit You Down” on September 15, where it was picked up by Fresh Finds, a Spotify curated playlist boasting 40K+ followers.
+        p After a case of mistaken identity, CLAVVS (formerly CLAWS) changed the spelling of their name to distinguish themselves from other groups with the same moniker. But really, it’s their music that sets them apart. If the vibe of their latest singles is any indication, the duo is departing from the mainly organic production of their first album and into a realm of dark, hypnotic alt-pop driven by spacey synths and anthemic drums. Given that half of CLAVVS is Graham Marsh, it makes sense that the duo is navigating more progressive, urban waters. With Amber Renee’s sultry, at times eerie, vocals floating atop the organized chaos, CLAVVS has stumbled upon new terrain that just might catapult them into more mainstream success in 2016.
+      section#releases
+        header
+          h2
+            span.bold Latest&nbsp;
+            span.light Releases
+        .releases-container
+          .release
+            img(src="img/spectre.jpg" alt="spectre" width="341" height="341")
+            .release-label Spectre
+          .release
+            img(src="img/leviathan.jpg" alt="leviathan" width="341" height="341")
+            .release-label Leviathan
+          .release
+            img(src="img/throats.jpg" alt="throats" width="341" height="341")
+            .release-label Throats
+      section#listen
+        header
+          h2
+            span.bold Listen&nbsp;
+            span.light Now
+        .soundcloud-container
+          iframe(width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/69917228&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true")
+      section#quote
+        h4
+          | Clavvs “pierces your brain by way of your ears and calls your head home with no intent of ever leaving.” –
+          em Yaqui
+      section#social
+        header
+          h2
+            span.bold Follow&nbsp;
+            span.light Us
+        .social-container
+          .facebook-container
+            .fb-page(data-href="https://www.facebook.com/clavvsatl" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true")
+              .fb-xfbml-parse-ignore
+                blockquote(cite="https://www.facebook.com/clavvsatl")
+                  a(href="https://www.facebook.com/clavvsatl") CLAVVS
+      section#calendar
+        header
+          h2
+            span.bold Upcoming&nbsp;
+            span.light Events
+        .calendar-container
+          ul.events
+            li.event(data-event-time="2016-05-08T21:00:00-04:00")
+              .event-container
+                .event-date May 8, 2016
+                .event-info
+                  .event-name Vinyl Release Show
+                  .event-place Atlanta
+              .countdown-container
+                .countdown
+                  .days
+                    .counter --
+                    .label Days
+                  .hours
+                    .counter --
+                    .label Hours
+                  .minutes
+                    .counter --
+                    .label Minutes
+                  .seconds
+                    .counter --
+                    .label Seconds
+                .event-info
+                  .event-name Vinyl Release Show
+                  .event-place Atlanta
+      section#videos
+        header
+          h2
+            span.bold Latest&nbsp;
+            span.light Videos
+          .subscribe
+            a(href="https://www.youtube.com/user/clawsatl")
+              img(src="img/subscribe.png" alt="subscribe" width="100" height="24")
+        .videos-container
+          .video
+            iframe(width="324" height="192" src="https://www.youtube.com/embed/habwjAeoVtg?feature=oembed" frameborder="no")
+            .video-label Throats
+          .video
+            iframe(width="324" height="192" src="https://www.youtube.com/embed/Qb0cQU6W1M8?feature=oembed" frameborder="no")
+            .video-label Sit You Down
+          .video
+            iframe(width="324" height="192" src="https://www.youtube.com/embed/I9qkGHnIccU?feature=oembed" frameborder="no")
+            .video-label A$AP ROCKY "L$D"
+      section#photos
+        header
+          h2
+            span.bold Featured&nbsp;
+            span.light Photos
+        .photos-container
+          img(src="img/woods.jpg" alt="woods" height="400" width="400")
+          img(src="img/glass.jpg" alt="glass" height="400" width="400")
+          img(src="img/neon.jpg" alt="neon" height="400" width="400")
+          img(src="img/live.jpg" alt="live" height="400" width="400")
+      section#contact
+        header
+          h2
+            span.bold Contact&nbsp;
+            span.light Us
+        .form-container
+          form
+            .form-group
+              input#name(type="text" required)
+              label(for="name")
+                span Name
+            .form-group
+              input#email(type="text" required)
+              label(for="email")
+                span Email
+            .form-group
+              textarea#message(rows="5")
+              label(for="message")
+                span Message
+            button#send(type="button")
+              i.fa.fa-spinner.fa-pulse
+              | Send
+    footer#footer
+      ul
+        li
+          a(href="https://www.facebook.com/clavvsatl")
+            i.fa.fa-facebook
+        li
+          a(href="https://twitter.com/clavvsatl")
+            i.fa.fa-twitter
+        li
+          a(href="https://soundcloud.com/clavvsatl")
+            i.fa.fa-soundcloud
+        li
+          a(href="https://www.youtube.com/c/Clavvstv")
+            i.fa.fa-youtube
+        li
+          a(href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1")
+            i.fa.fa-spotify
+    script(src="js/app.js")
