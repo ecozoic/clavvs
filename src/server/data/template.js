@@ -3,7 +3,8 @@ module.exports = {
     src: 'img/logo.jpg',
     width: 1024,
     height: 237,
-    alt: 'logo'
+    alt: 'logo',
+    header: 'CLAVVS'
   },
   bio: {
     paragraphs: [
