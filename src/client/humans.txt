@@ -1,0 +1,25 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Developer: John Mitchell
+    Contact: johnnn.mitchell@gmail.com
+    GitHub: https://github.com/ecozoic
+    LinkedIn: https://www.linkedin.com/in/john-mitchell-2720827a
+
+# THANKS
+
+    Fiancee: Anna Norris
+    -for always supporting me :) <3
+
+    Beat Master Extraordinaire: Graham Marsh
+    -for writing them hooks
+
+    Songstress Supreme: Amber Renee
+    -for hitting them notes
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Node.js, Express, Jade, Webpack, Babel, SCSS, FontAwesome, Google Fonts

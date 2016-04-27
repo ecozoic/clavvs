@@ -1,5 +1,3 @@
-hidden h1 behind banner for SEO
-google analytics tag (use html5 boilerplate optimized version)
 twitter + instagram API (tokens in .env + api + ui controls)
 hook up contact us form (email in heroku?)
 build event page + comments
@@ -10,5 +8,4 @@ custom 404 page
 production error handling
 caching of static resources (use webpack to generate hash + html webpack plugin to handle templating, set aggressive cache expiration policy)
 remove copy webpack plugin and use require to handle all build stuff
-admin area to do stuff (hide behind google oAuth?)
-robots.txt, humans.txt
+admin area to do stuff (hide behind google oAuth? jwts?)
