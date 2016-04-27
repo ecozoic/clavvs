@@ -4,12 +4,7 @@ section#releases
       span.bold Latest&nbsp;
       span.light Releases
   .releases-container
-    .release
-      img(src="img/spectre.jpg" alt="spectre" width="341" height="341")
-      .release-label Spectre
-    .release
-      img(src="img/leviathan.jpg" alt="leviathan" width="341" height="341")
-      .release-label Leviathan
-    .release
-      img(src="img/throats.jpg" alt="throats" width="341" height="341")
-      .release-label Throats
+    each img in releases.images
+      .release
+        img(src="#{img.src}" alt="#{img.alt}" width="#{releases.width}" height="#{releases.height}")
+        .release-label= img.label

@@ -22,8 +22,8 @@ app.use(serveStatic(path.resolve(__dirname, '../../public')));
 
 // add routes here
 app.get('/', function(req, res) {
-  console.log(req);
-  res.render('index');
+  var data = require('./data/template.js');
+  res.render('index', data);
 });
 
 app.use(function(req, res) {

@@ -5,26 +5,27 @@ section#calendar
       span.light Events
   .calendar-container
     ul.events
-      li.event(data-event-time="2016-05-08T21:00:00-04:00")
-        .event-container
-          .event-date May 8, 2016
-          .event-info
-            .event-name Vinyl Release Show
-            .event-place Atlanta
-        .countdown-container
-          .countdown
-            .days
-              .counter --
-              .label Days
-            .hours
-              .counter --
-              .label Hours
-            .minutes
-              .counter --
-              .label Minutes
-            .seconds
-              .counter --
-              .label Seconds
-          .event-info
-            .event-name Vinyl Release Show
-            .event-place Atlanta
+      each evt in calendar.events
+        li.event(data-event-time="#{evt.time}")
+          .event-container
+            .event-date= evt.date
+            .event-info
+              .event-name= evt.name
+              .event-place= evt.place
+          .countdown-container
+            .countdown
+              .days
+                .counter --
+                .label Days
+              .hours
+                .counter --
+                .label Hours
+              .minutes
+                .counter --
+                .label Minutes
+              .seconds
+                .counter --
+                .label Seconds
+            .event-info
+              .event-name= evt.name
+              .event-place= evt.place

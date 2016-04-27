@@ -4,7 +4,5 @@ section#photos
       span.bold Featured&nbsp;
       span.light Photos
   .photos-container
-    img(src="img/woods.jpg" alt="woods" height="400" width="400")
-    img(src="img/glass.jpg" alt="glass" height="400" width="400")
-    img(src="img/neon.jpg" alt="neon" height="400" width="400")
-    img(src="img/live.jpg" alt="live" height="400" width="400")
+    each photo in photos.images
+      img(src="#{photo.src}" alt="#{photo.alt}" height="#{photos.height}" width="#{photos.width}")

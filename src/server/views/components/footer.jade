@@ -1,17 +1,6 @@
 footer#footer
   ul
-    li
-      a(href="https://www.facebook.com/clavvsatl")
-        i.fa.fa-facebook
-    li
-      a(href="https://twitter.com/clavvsatl")
-        i.fa.fa-twitter
-    li
-      a(href="https://soundcloud.com/clavvsatl")
-        i.fa.fa-soundcloud
-    li
-      a(href="https://www.youtube.com/c/Clavvstv")
-        i.fa.fa-youtube
-    li
-      a(href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1")
-        i.fa.fa-spotify
+    each link in social.links
+      li
+        a(href="#{link.href}")
+          i(class="#{link.icon}")
