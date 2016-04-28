@@ -13,7 +13,7 @@
     "deploy": "git push heroku master"
   },
   "author": "John Mitchell <johnnn.mitchell@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "private": true,
   "engines": {
     "node": "4.4.3",
