@@ -25,7 +25,7 @@ module.exports = {
   },
   header: {
     thumbnail: {
-      href: 'http://blueowlmedia.com/clawsatl/"',
+      href: 'http://blueowlmedia.com/clawsatl/',
       src: 'img/thumbnail.jpg',
       alt: 'thumbnail',
       width: 100,

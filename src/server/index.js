@@ -12,6 +12,8 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var connectEnsureLogin = require('connect-ensure-login');
 
+var template = require('./data/template');
+
 var app = express();
 
 // configure oauth
@@ -20,8 +22,21 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK_URL
   }, function(accessToken, refreshToken, profile, cb) {
-    // TODO: validate user is valid admin user
-    return cb(null, profile);
+    var admins = process.env.ADMINS.split(',');
+    var isAdmin = false;
+
+    profile.emails.forEach(function(email) {
+      if (admins.indexOf(email.value) > -1) {
+        isAdmin = true;
+      }
+    });
+
+    if (isAdmin) {
+      cb(null, profile);
+    } else {
+      // TODO: handle this error
+      cb(new Error('Unauthorized User'));
+    }
   })
 );
 
@@ -58,26 +73,22 @@ app.use(passport.session());
 
 // add routes here
 app.get('/', function(req, res) {
-  var data = require('./data/template');
-  res.render('index', data);
+  res.render('index', template);
 });
 
 app.get('/login', function(req, res) {
-  res.render('login');
+  res.render('login', template);
 });
 
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
-  // successful authentication
-  res.redirect('/admin');
-});
+app.post('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/admin', failureRedirect: '/login' }));
 
-app.get('/admin', connectEnsureLogin.ensureLoggedIn('/login'), function(req, res) {
-  res.render('admin');
+app.get('/admin', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+  res.render('admin', template);
 });
 
 app.use(function(req, res) {
-  res.status(404).render('404');
+  res.status(404).render('404', template);
 });
 
 if (process.env.NODE_ENV === 'development') {

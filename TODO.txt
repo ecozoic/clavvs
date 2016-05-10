@@ -7,4 +7,4 @@ domain
 custom 404 page
 production error handling
 caching of static resources (use webpack to generate hash + html webpack plugin to handle templating, set aggressive cache expiration policy)
-admin area to do stuff (hide behind google oAuth? jwts?)
+admin area to do stuff
