@@ -7,4 +7,9 @@ domain
 custom 404, 500, 401/403 pages
 caching of static resources (use webpack to generate hash + html webpack plugin to handle templating, set aggressive cache expiration policy)
 admin area to do stuff
-live reload
+live reload + nodemon
+webpack dev vs prod
+replace connect.session() memorystore
+hot reloading?
+linting
+es6 stuff in node

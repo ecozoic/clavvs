@@ -12,8 +12,8 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var connectEnsureLogin = require('connect-ensure-login');
 var webpack = require('webpack');
-var webpackConfig = require('../../webpack.config.js');
 var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
 
 var template = require('./data/template');
 
@@ -55,6 +55,9 @@ passport.deserializeUser(function(obj, cb) {
 // configure views & view engine here...
 app.set('view engine', 'jade');
 app.set('views', path.resolve(__dirname, './views'));
+app.locals = {
+  env: process.env.NODE_ENV
+};
 
 app.use(compression());
 
@@ -65,15 +68,17 @@ if (process.env.NODE_ENV !== 'development') {
 app.use(logger('dev'));
 
 if (process.env.NODE_ENV === 'development') {
+  var webpackConfig = require('../../webpack.dev.config.js');
   var compiler = webpack(webpackConfig);
 
   app.use(webpackDevMiddleware(compiler, {
-    stats: { colors: true },
-    headers: { 'X-Served-By': 'webpack' }
+    noInfo: true
   }));
-}
 
-// app.use(serveStatic(path.resolve(__dirname, '../../public')));
+  app.use(webpackHotMiddleware(compiler));
+} else {
+  app.use(serveStatic(path.resolve(__dirname, '../../public')));
+}
 
 // add method overrides, sessions, body parsers, multers here...
 

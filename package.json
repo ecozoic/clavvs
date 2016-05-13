@@ -5,13 +5,13 @@
   "main": "src/server/index.js",
   "scripts": {
     "start": "node src/server/index.js",
-    "start:debug": "node-debug src/server/index.js",
+      "start:debug": "node-debug src/server/index.js",
     "postinstall": "npm run build",
     "clean": "rimraf public",
     "build": "npm run clean && webpack",
     "dev": "npm run build -- --watch",
     "local": "heroku local web",
-    "local:debug": "heroku local web-debug",
+      "local:debug": "heroku local web-debug",
     "deploy": "git push heroku master"
   },
   "author": "John Mitchell <johnnn.mitchell@gmail.com>",
@@ -52,6 +52,7 @@
     "sass-loader": "3.2.0",
     "style-loader": "0.13.1",
     "webpack": "1.13.0",
-    "webpack-dev-middleware": "1.6.1"
+    "webpack-dev-middleware": "1.6.1",
+    "webpack-hot-middleware": "2.10.0"
   }
 }

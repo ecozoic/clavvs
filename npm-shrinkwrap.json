@@ -47,6 +47,11 @@
       "from": "ansi@>=0.3.1 <0.4.0",
       "resolved": "https://registry.npmjs.org/ansi/-/ansi-0.3.1.tgz"
     },
+    "ansi-html": {
+      "version": "0.0.5",
+      "from": "ansi-html@0.0.5",
+      "resolved": "https://registry.npmjs.org/ansi-html/-/ansi-html-0.0.5.tgz"
+    },
     "ansi-regex": {
       "version": "2.0.0",
       "from": "ansi-regex@>=2.0.0 <3.0.0",
@@ -1406,6 +1411,11 @@
       "version": "1.1.0",
       "from": "html-comment-regex@>=1.1.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/html-comment-regex/-/html-comment-regex-1.1.0.tgz"
+    },
+    "html-entities": {
+      "version": "1.2.0",
+      "from": "html-entities@>=1.2.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/html-entities/-/html-entities-1.2.0.tgz"
     },
     "http-browserify": {
       "version": "1.7.0",
@@ -3492,6 +3502,11 @@
       "version": "1.6.1",
       "from": "webpack-dev-middleware@latest",
       "resolved": "https://registry.npmjs.org/webpack-dev-middleware/-/webpack-dev-middleware-1.6.1.tgz"
+    },
+    "webpack-hot-middleware": {
+      "version": "2.10.0",
+      "from": "webpack-hot-middleware@latest",
+      "resolved": "https://registry.npmjs.org/webpack-hot-middleware/-/webpack-hot-middleware-2.10.0.tgz"
     },
     "webpack-sources": {
       "version": "0.1.2",
