@@ -5,11 +5,13 @@
   "main": "src/server/index.js",
   "scripts": {
     "start": "node src/server/index.js",
+    "start:debug": "node-debug src/server/index.js",
     "postinstall": "npm run build",
     "clean": "rimraf public",
     "build": "npm run clean && webpack",
     "dev": "npm run build -- --watch",
     "local": "heroku local web",
+    "local:debug": "heroku local web-debug",
     "deploy": "git push heroku master"
   },
   "author": "John Mitchell <johnnn.mitchell@gmail.com>",
@@ -43,6 +45,7 @@
     "css-loader": "0.23.1",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
+    "node-inspector": "0.12.8",
     "node-sass": "3.6.0",
     "postcss-cssnext": "2.5.2",
     "postcss-loader": "0.8.2",
