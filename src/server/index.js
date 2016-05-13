@@ -11,6 +11,9 @@ var session = require('express-session');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var connectEnsureLogin = require('connect-ensure-login');
+var webpack = require('webpack');
+var webpackConfig = require('../../webpack.config.js');
+var webpackDevMiddleware = require('webpack-dev-middleware');
 
 var template = require('./data/template');
 
@@ -54,11 +57,25 @@ app.set('view engine', 'jade');
 app.set('views', path.resolve(__dirname, './views'));
 
 app.use(compression());
-app.use(favicon(path.resolve(__dirname, '../../public/favicon.ico')));
+
+if (process.env.NODE_ENV !== 'development') {
+  app.use(favicon(path.resolve(__dirname, '../../public/favicon.ico')));
+}
+
 app.use(logger('dev'));
 
+if (process.env.NODE_ENV === 'development') {
+  var compiler = webpack(webpackConfig);
+
+  app.use(webpackDevMiddleware(compiler, {
+    stats: { colors: true },
+    headers: { 'X-Served-By': 'webpack' }
+  }));
+}
+
+// app.use(serveStatic(path.resolve(__dirname, '../../public')));
+
 // add method overrides, sessions, body parsers, multers here...
-app.use(serveStatic(path.resolve(__dirname, '../../public')));
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -93,6 +110,10 @@ app.use(function(req, res) {
 
 if (process.env.NODE_ENV === 'development') {
   app.use(errorHandler());
+} else {
+  app.use(function(err, req, res, next) {
+    res.status(500).render('500', template);
+  });
 }
 
 app.listen(process.env.PORT || 9000, function() {

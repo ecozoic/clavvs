@@ -1,0 +1,11 @@
+require('./banner.jpg');
+require('./glass.jpg');
+require('./leviathan.jpg');
+require('./live.jpg');
+require('./logo.jpg');
+require('./neon.jpg');
+require('./spectre.jpg');
+require('./subscribe.png');
+require('./throats.jpg');
+require('./thumbnail.jpg');
+require('./woods.jpg');
