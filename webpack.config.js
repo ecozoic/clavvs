@@ -7,7 +7,8 @@ module.exports = {
   entry: ['./index'],
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'js/app.js'
+    filename: 'js/app.js',
+    publicPath: '/'
   },
 
   devtool: 'source-map',
@@ -27,7 +28,7 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss?sourceMap!sass?sourceMap')
+        loader: ExtractTextPlugin.extract('css!postcss!sass')
       },
       {
         test: /\.js$/,
