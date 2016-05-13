@@ -1,4 +1,4 @@
-twitter + instagram API (tokens in .env + api + ui controls)
+instagram API (tokens in .env + api + ui controls)
 hook up contact us form (email in heroku?)
 build event page + comments
 pick a db (JSON vs mongoDB vs postgresql)
@@ -7,9 +7,7 @@ domain
 custom 404, 500, 401/403 pages
 caching of static resources (use webpack to generate hash + html webpack plugin to handle templating, set aggressive cache expiration policy)
 admin area to do stuff
-live reload + nodemon
-webpack dev vs prod
+nodemon
 replace connect.session() memorystore
-hot reloading?
 linting
 es6 stuff in node

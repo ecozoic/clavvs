@@ -4,10 +4,17 @@
   .social-container {
     display: flex;
     justify-content: center;
-  }
-}
+    padding-left: 80px;
+    padding-right: 80px;
 
-#social .social-container {
-  display: flex;
-  justify-content: center;
+    .twitter-container {
+      flex-basis: 460px;
+      margin-right: 40px;
+    }
+
+    .facebook-container {
+      flex-basis: 340px;
+      margin-left: 40px;
+    }
+  }
 }
