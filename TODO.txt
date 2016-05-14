@@ -7,7 +7,8 @@ domain
 custom 404, 500, 401/403 pages
 caching of static resources (use webpack to generate hash + html webpack plugin to handle templating, set aggressive cache expiration policy)
 admin area to do stuff
+fix stupid # being added by google oauth in chrome
 nodemon
-replace connect.session() memorystore
-linting
+replace connect.session() memorystore w redis
 es6 stuff in node
+organize routes/controllers
