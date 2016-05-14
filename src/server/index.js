@@ -1,40 +1,44 @@
-var path = require('path');
+'use strict';
 
-var express = require('express');
-var compression = require('compression');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var serveStatic = require('serve-static');
-var errorHandler = require('errorhandler');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-// var multer = require('multer');
+const path = require('path');
 
-var session = require('express-session');
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
-var connectEnsureLogin = require('connect-ensure-login');
+const express = require('express');
+const compression = require('compression');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const serveStatic = require('serve-static');
+const errorHandler = require('errorhandler');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+// const multer = require('multer');
 
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
+const session = require('express-session');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const connectEnsureLogin = require('connect-ensure-login');
 
-var rp = require('request-promise');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackDevConfig = require('../../webpack.dev.config.js');
 
-var template = require('./data/template');
+const rp = require('request-promise');
 
-var app = express();
+const template = require('./data/template');
+const isDev = process.env.NODE_ENV === 'development';
+
+const app = express();
 
 // configure oauth
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK_URL
-  }, function(accessToken, refreshToken, profile, cb) {
-    var admins = process.env.ADMINS.split(',');
-    var isAdmin = false;
+  }, (accessToken, refreshToken, profile, cb) => {
+    const admins = process.env.ADMINS.split(',');
+    let isAdmin = false;
 
-    profile.emails.forEach(function(email) {
+    profile.emails.forEach((email) => {
       if (admins.indexOf(email.value) > -1) {
         isAdmin = true;
       }
@@ -50,11 +54,11 @@ passport.use(new GoogleStrategy({
 );
 
 // configure session
-passport.serializeUser(function(user, cb) {
+passport.serializeUser((user, cb) => {
   cb(null, user);
 });
 
-passport.deserializeUser(function(obj, cb) {
+passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 
@@ -67,15 +71,14 @@ app.locals = {
 
 app.use(compression());
 
-if (process.env.NODE_ENV !== 'development') {
+if (!isDev) {
   app.use(favicon(path.resolve(__dirname, '../../public/favicon.ico')));
 }
 
 app.use(logger('dev'));
 
-if (process.env.NODE_ENV === 'development') {
-  var webpackConfig = require('../../webpack.dev.config.js');
-  var compiler = webpack(webpackConfig);
+if (isDev) {
+  const compiler = webpack(webpackDevConfig);
 
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true
@@ -101,16 +104,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // add routes here
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.render('index', template);
 });
 
-app.get('/login', function(req, res) {
+app.get('/login', (req, res) => {
   res.render('login', template);
 });
 
-app.get('/api/instagram/user', function(req, res) {
-  var options = {
+app.get('/api/instagram/user', (req, res) => {
+  const options = {
     uri: 'https://api.instagram.com/v1/users/self/',
     qs: {
       access_token: process.env.INSTAGRAM_ACCESS_TOKEN
@@ -119,16 +122,16 @@ app.get('/api/instagram/user', function(req, res) {
   };
 
   rp(options)
-    .then(function(data) {
+    .then((data) => {
       res.status(200).json(data);
     })
-    .catch(function(err) {
+    .catch((err) => {
       res.status(500).json(err);
     });
 });
 
-app.get('/api/instagram/recent', function(req, res) {
-  var options = {
+app.get('/api/instagram/recent', (req, res) => {
+  const options = {
     uri: 'https://api.instagram.com/v1/users/self/media/recent/',
     qs: {
       access_token: process.env.INSTAGRAM_ACCESS_TOKEN
@@ -137,10 +140,10 @@ app.get('/api/instagram/recent', function(req, res) {
   };
 
   rp(options)
-    .then(function(data) {
+    .then((data) => {
       res.status(200).json(data);
     })
-    .catch(function(err) {
+    .catch((err) => {
       res.status(500).json(err);
     });
 });
@@ -148,23 +151,23 @@ app.get('/api/instagram/recent', function(req, res) {
 app.post('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/admin', failureRedirect: '/login' }));
 
-app.get('/admin', connectEnsureLogin.ensureLoggedIn(), function(req, res) {
+app.get('/admin', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
   res.render('admin', template);
 });
 
-app.use(function(req, res) {
+app.use((req, res) => {
   res.status(404).render('404', template);
 });
 
-if (process.env.NODE_ENV === 'development') {
+if (isDev) {
   app.use(errorHandler());
 } else {
-  app.use(function(err, req, res) {
+  app.use((err, req, res) => {
     res.status(500).render('500', template);
   });
 }
 
-app.listen(process.env.PORT || 9000, function() {
+app.listen(process.env.PORT || 9000, () => {
   /* eslint-disable no-console */
   console.log('Server listening on port: ' + process.env.PORT);
 });

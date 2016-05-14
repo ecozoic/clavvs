@@ -6,13 +6,18 @@
   "scripts": {
     "start": "node src/server/index.js",
       "start:debug": "node-debug src/server/index.js",
+
     "postinstall": "npm run build",
+
     "clean": "rimraf public",
+
     "build": "npm run clean && webpack",
-    "dev": "npm run build -- --watch",
+
     "local": "heroku local web",
       "local:debug": "heroku local web-debug",
+
     "deploy": "git push heroku master",
+
     "lint": "npm run lint:server && npm run lint:client",
       "lint:client": "eslint \"src/client/**/*.js\"",
       "lint:server": "eslint \"src/server/**/*.js\""

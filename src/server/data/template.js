@@ -16,6 +16,7 @@ module.exports = {
   calendar: {
     events: [
       {
+        id: 1,
         name: 'Vinyl Release Show',
         place: 'Atlanta',
         time: '2016-05-08T21:00:00-04:00',
