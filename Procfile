@@ -1,2 +1,2 @@
-web: npm start
-web-debug: npm run start:debug
+web: npm run serve
+
