@@ -38,22 +38,32 @@ export class Header extends Component {
       <Menu mode={menuMode} className={styles.nav}>
         <Menu.Item>
           <a href='https://soundcloud.com/clavvsatl'>
-            <i className='fa fa-soundcloud'></i>
+            <i className='fa fa-fw fa-soundcloud'></i>
           </a>
         </Menu.Item>
         <Menu.Item>
           <a href='https://www.facebook.com/clavvsatl'>
-            <i className='fa fa-facebook'></i>
+            <i className='fa fa-fw fa-facebook'></i>
           </a>
         </Menu.Item>
         <Menu.Item>
           <a href='https://twitter.com/clavvsatl'>
-            <i className='fa fa-twitter'></i>
+            <i className='fa fa-fw fa-twitter'></i>
           </a>
         </Menu.Item>
         <Menu.Item>
           <a href='https://www.instagram.com/clavvsatl'>
-            <i className='fa fa-instagram'></i>
+            <i className='fa fa-fw fa-instagram'></i>
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a href='https://www.youtube.com/user/clawsatl'>
+            <i className='fa fa-fw fa-youtube'></i>
+          </a>
+        </Menu.Item>
+        <Menu.Item>
+          <a href='https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1'>
+            <i className='fa fa-fw fa-spotify'></i>
           </a>
         </Menu.Item>
       </Menu>

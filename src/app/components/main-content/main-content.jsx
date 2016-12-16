@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import styles from './main-content.scss';
 
 import { Hero } from '../hero';
+import { Tagline } from '../tagline';
 
 /**
  * Main content component.
@@ -17,6 +18,7 @@ export class MainContent extends Component {
     return (
       <div className={styles.mainContent}>
         <Hero />
+        <Tagline />
       </div>
     );
   }

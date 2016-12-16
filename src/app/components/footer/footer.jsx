@@ -41,6 +41,18 @@ export class Footer extends Component {
                 <span>Instagram</span>
               </a>
             </div>
+            <div>
+              <a href='https://www.youtube.com/user/clawsatl'>
+                <i className='fa fa-fw fa-youtube'></i>
+                <span>YouTube</span>
+              </a>
+            </div>
+            <div>
+              <a href='https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1'>
+                <i className='fa fa-fw fa-spotify'></i>
+                <span>Spotify</span>
+              </a>
+            </div>
           </li>
         </ul>
       </footer>
