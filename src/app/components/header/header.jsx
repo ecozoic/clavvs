@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import styles from './header.scss';
+import logo from '../../../images/logo.png';
 
 import { Row, Col, Menu, Popover } from 'antd';
 
@@ -74,8 +75,8 @@ export class Header extends Component {
         <Row>
           <Col lg={8} md={10} sm={24} xs={24}>
             <Link to={'/'} className={styles.logo}>
-              <img alt='logo' src='' />
-              <span>CLAVVS</span>
+              <img alt='logo' src={logo} />
+              <h1>CLAVVS</h1>
             </Link>
           </Col>
           <Col lg={16} md={14} sm={17} xs={0}>
