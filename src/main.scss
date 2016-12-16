@@ -1,9 +1,8 @@
-$gray: #666;
-$white: #fff;
+@import './theme';
 
 body {
-  background: $white;
-  color: $gray;
+  background: $black;
+  color: $white;
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   margin: 0;

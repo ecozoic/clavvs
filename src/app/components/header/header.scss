@@ -1,0 +1,80 @@
+@import '../../../theme';
+@import '../../../mixins';
+
+$header-height: 80px;
+
+.header {
+  @include clearfix;
+
+  background: $black;
+  border-bottom: 1px solid $white;
+  height: $header-height;
+  margin-bottom: 24px;
+  padding: 0 4%;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+
+  .logo {
+    float: left;
+    height: $header-height;
+    line-height: $header-height;
+
+    img {
+      height: $header-height;
+      line-height: $header-height;
+      margin-right: 8px;
+      width: 80px;
+    }
+
+    span {
+      color: $white;
+      float: right;
+      font-size: 16px;
+      height: $header-height;
+      line-height: $header-height;
+      text-transform: uppercase;
+    }
+  }
+
+  .nav {
+    background: transparent !important;
+    border: 0;
+    float: right;
+    font-size: 14px;
+
+    li {
+      border-bottom-width: 3px;
+      height: $header-height;
+      line-height: $header-height;
+      min-width: 72px;
+      text-align: center;
+    }
+  }
+
+  .nav-icon {
+    cursor: pointer;
+    display: block;
+    height: 22px;
+    position: absolute;
+    right: 30px;
+    top: 32px;
+    width: 16px;
+    z-index: 1;
+  }
+
+  i {
+    font-size: 1.5em;
+  }
+}
+
+.popover-menu {
+  ul,
+  li {
+    border-right: 0 !important;
+  }
+
+  li {
+    padding-left: 16px !important;
+  }
+}
