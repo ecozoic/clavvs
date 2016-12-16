@@ -1,6 +1,6 @@
 {
   "name": "clavvs",
-  "version": "2.0.1",
+  "version": "2.0.0",
   "description": "hypnotic alt pop // spectral trip hop",
   "scripts": {
     "pretest": "npm run clean:test",
@@ -8,7 +8,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "prebuild": "npm run clean:build",
     "build": "cross-env NODE_ENV=production webpack --progress --profile --colors --bail",
-    "serve": "node server.js",
+    "serve": "cross-env NODE_ENV=production node server.js",
     "pree2e": "npm run clean:e2e && selenium-standalone install",
     "e2e": "cross-env NODE_ENV=e2e nightwatch",
     "flow": "flow check",
