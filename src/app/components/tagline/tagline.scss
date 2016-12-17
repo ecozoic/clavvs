@@ -2,35 +2,32 @@
 @import '../../../theme';
 
 .tagline {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  h1 {
-    color: $black;
-    font-family: 'Nunito', sans-serif;
-    font-size: 300px;
-    font-weight: 400;
-
-    @include mobile {
-      font-size: 120px;
-    }
-  }
+  @include page;
+  background: url('../../../images/icon.png') no-repeat center;
 
   h2 {
-    color: $blue;
+    align-items: center;
+    display: flex;
     font-family: 'Audiowide', cursive;
     font-size: 64px;
     font-weight: 400;
+    height: 100%;
+    justify-content: space-around;
+    width: 100%;
 
-    @include mobile {
-      font-size: 40px;
+    .hypnotic {
+      color: $blue;
     }
 
-    .separator-one,
-    .separator-two {
+    .spectral {
       color: $purple;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      font-size: 36px;
+      justify-content: space-between;
+      padding: 40px 10px;
     }
   }
 }

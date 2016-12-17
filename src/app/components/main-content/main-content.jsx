@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import styles from './main-content.scss';
 
 import { Hero } from '../hero';
+import { Header } from '../header';
+import { Tagline } from '../tagline';
 
 /**
  * Main content component.
@@ -16,7 +18,9 @@ export class MainContent extends Component {
   render() {
     return (
       <div className={styles.mainContent}>
+        <Header />
         <Hero />
+        <Tagline />
       </div>
     );
   }
