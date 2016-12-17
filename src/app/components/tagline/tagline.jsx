@@ -14,7 +14,13 @@ export class Tagline extends Component {
   render() {
     return (
       <div className={styles.tagline}>
-        <h2>hypnotic alt pop // spectral trip hop</h2>
+        <h1>CLAVVS</h1>
+        <h2>
+          <span className={styles.hypnotic}>hypnotic alt pop</span>
+          <span className={styles.separatorOne}> /</span>
+          <span className={styles.separatorTwo}>/ </span>
+          <span className={styles.spectral}>spectral trip hop</span>
+        </h2>
       </div>
     );
   }

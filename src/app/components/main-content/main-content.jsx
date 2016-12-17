@@ -18,7 +18,6 @@ export class MainContent extends Component {
     return (
       <div className={styles.mainContent}>
         <Hero />
-        <Tagline />
       </div>
     );
   }

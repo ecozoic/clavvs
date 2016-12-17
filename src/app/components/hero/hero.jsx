@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 import styles from './hero.scss';
 
+import { Tagline } from '../tagline';
+
 /**
  * Hero component.
  * @extends React.Component
@@ -13,7 +15,9 @@ export class Hero extends Component {
    */
   render() {
     return (
-      <section className={styles.hero} />
+      <section className={styles.hero}>
+        <Tagline />
+      </section>
     );
   }
 }
