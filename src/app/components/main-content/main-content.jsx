@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import styles from './main-content.scss';
 
 import { Hero } from '../hero';
-import { Tagline } from '../tagline';
 
 /**
  * Main content component.

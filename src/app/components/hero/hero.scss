@@ -3,5 +3,8 @@
 .hero {
   @include page;
   background: url('../../../images/banner.jpg') no-repeat center / cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 100%;
 }
