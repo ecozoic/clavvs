@@ -16,10 +16,10 @@ export class Hero extends Component {
       <section className={styles.hero}>
         <h1>CLAVVS</h1>
         <div>
-          <a href='#'>
+          <a href='https://soundcloud.com/clavvsatl'>
             <i className='fa fa-fw fa-headphones'></i>
           </a>
-          <a href='#'>
+          <a href='https://clavvs.bandcamp.com/'>
             <i className='fa fa-fw fa-shopping-cart'></i>
           </a>
         </div>

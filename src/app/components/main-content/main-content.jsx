@@ -8,6 +8,7 @@ import { Header } from '../header';
 import { Tagline } from '../tagline';
 import { Soundcloud } from '../soundcloud';
 import { Songkick } from '../songkick';
+import { Socials } from '../socials';
 
 /**
  * Main content component.
@@ -27,6 +28,7 @@ export class MainContent extends Component {
           <Soundcloud />
           <Songkick />
         </div>
+        <Socials />
       </div>
     );
   }

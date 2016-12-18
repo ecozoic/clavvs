@@ -1,0 +1,33 @@
+@import '../../../mixins';
+@import '../../../theme';
+
+.socials {
+  align-items: center;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  min-height: 700px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  a {
+    @include button;
+    background: transparent;
+    border: 0 !important;
+    color: $blue;
+    font-size: 80px;
+
+    @include mobile {
+      font-size: 60px;
+    }
+
+    &:hover {
+      background: transparent;
+      color: $purple;
+    }
+  }
+}
