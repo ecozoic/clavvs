@@ -7,6 +7,7 @@ import { Hero } from '../hero';
 import { Header } from '../header';
 import { Tagline } from '../tagline';
 import { Soundcloud } from '../soundcloud';
+import { Songkick } from '../songkick';
 
 /**
  * Main content component.
@@ -23,6 +24,7 @@ export class MainContent extends Component {
         <Hero />
         <Tagline />
         <Soundcloud />
+        <Songkick />
       </div>
     );
   }
