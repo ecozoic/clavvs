@@ -15,6 +15,14 @@ export class Hero extends Component {
     return (
       <section className={styles.hero}>
         <h1>CLAVVS</h1>
+        <div>
+          <a href='#'>
+            <i className='fa fa-fw fa-headphones'></i>
+          </a>
+          <a href='#'>
+            <i className='fa fa-fw fa-shopping-cart'></i>
+          </a>
+        </div>
       </section>
     );
   }
