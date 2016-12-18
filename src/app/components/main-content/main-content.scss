@@ -1,5 +1,11 @@
+@import '../../../mixins';
+
 .main-content {
-  height: 100vh;
-  min-height: 700px;
-  padding-top: 80px;
+  position: relative;
+
+  .embed-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
 }
