@@ -6,7 +6,6 @@
   clear: both;
   color: $gray;
   font-size: 12px;
-  min-height: 216px;
   z-index: 1;
 
   ul {
@@ -46,5 +45,9 @@
 
   p {
     color: $white;
+
+    a {
+      color: $white;
+    }
   }
 }
