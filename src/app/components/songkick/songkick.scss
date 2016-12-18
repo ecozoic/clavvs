@@ -1,9 +1,19 @@
+@import '../../../theme';
+@import '../../../mixins';
+
 .songkick {
-  max-width: 50%;
+  flex-basis: 50%;
+
+  @include mobile {
+    flex-basis: 100%;
+  }
 
   h2 {
+    border-bottom: 1px solid $purple;
     font-size: 48px;
     font-weight: 400;
+    margin: auto;
+    max-width: 150px;
     text-align: center;
   }
 }

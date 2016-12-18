@@ -4,6 +4,7 @@
 .tagline {
   @include page;
   background: url('../../../images/icon.png') no-repeat center;
+  height: 50vh;
 
   h2 {
     align-items: center;

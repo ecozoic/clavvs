@@ -5,6 +5,7 @@
   @include page;
   align-items: center;
   background: url('../../../images/banner.jpg') no-repeat center / cover;
+  border-bottom: 1px solid $purple;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

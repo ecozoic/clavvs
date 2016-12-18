@@ -66,6 +66,11 @@ export class Header extends Component {
             <i className='fa fa-fw fa-spotify'></i>
           </a>
         </Menu.Item>
+        <Menu.Item>
+          <a href='https://clavvs.bandcamp.com/'>
+            <i className='fa fa-fw fa-bandcamp'></i>
+          </a>
+        </Menu.Item>
       </Menu>
     );
 

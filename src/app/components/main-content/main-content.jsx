@@ -23,8 +23,10 @@ export class MainContent extends Component {
         <Header />
         <Hero />
         <Tagline />
-        <Soundcloud />
-        <Songkick />
+        <div className={styles.embedContainer}>
+          <Soundcloud />
+          <Songkick />
+        </div>
       </div>
     );
   }
