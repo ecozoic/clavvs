@@ -6,6 +6,7 @@ import styles from './main-content.scss';
 import { Hero } from '../hero';
 import { Header } from '../header';
 import { Tagline } from '../tagline';
+import { Soundcloud } from '../soundcloud';
 
 /**
  * Main content component.
@@ -21,6 +22,7 @@ export class MainContent extends Component {
         <Header />
         <Hero />
         <Tagline />
+        <Soundcloud />
       </div>
     );
   }
