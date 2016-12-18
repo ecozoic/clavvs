@@ -9,6 +9,7 @@ import { Tagline } from '../tagline';
 import { Soundcloud } from '../soundcloud';
 import { Songkick } from '../songkick';
 import { Socials } from '../socials';
+import { Banner } from '../banner';
 
 /**
  * Main content component.
@@ -24,6 +25,7 @@ export class MainContent extends Component {
         <Header />
         <Hero />
         <Tagline />
+        <Banner />
         <div className={styles.embedContainer}>
           <Soundcloud />
           <Songkick />
