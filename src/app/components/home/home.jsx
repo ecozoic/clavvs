@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import styles from './home.scss';
 
+import { Header } from '../header';
 import { MainContent } from '../main-content';
 import { Footer } from '../footer';
 
@@ -17,6 +18,7 @@ export class Home extends Component {
   render() {
     return (
       <div className={styles.home}>
+        <Header />
         <MainContent />
         <Footer />
       </div>

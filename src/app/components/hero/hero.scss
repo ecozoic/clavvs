@@ -13,6 +13,7 @@
   width: 100%;
 
   @include mobile {
+    background-position-x: 45%;
     padding-bottom: 40px;
   }
 

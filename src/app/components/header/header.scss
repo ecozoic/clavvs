@@ -6,14 +6,30 @@ $header-height: 80px;
 .header {
   @include clearfix;
 
-  background: transparent;
-  border-bottom: 1px solid transparent;
+  background: $black;
+  border-bottom: 1px solid $purple;
   height: $header-height;
   margin-bottom: 24px;
   padding: 0 4%;
-  position: absolute;
+  position: fixed;
+  transition: border .5s cubic-bezier(.455, .03, .515, .955), background .5s cubic-bezier(.455, .03, .515, .955);
   width: 100%;
   z-index: 999;
+
+  &.dark {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+
+    .nav {
+      a {
+        color: $black-transparent;
+      }
+    }
+
+    .nav-icon {
+      color: $black-transparent;
+    }
+  }
 
   .logo {
     float: left;
@@ -32,10 +48,10 @@ $header-height: 80px;
   }
 
   .nav {
-    background: transparent !important;
+    background: transparent;
     border: 0;
     float: right;
-    font-size: 24px;
+    font-size: 20px;
 
     li {
       border-bottom: 3px solid transparent;
@@ -49,7 +65,7 @@ $header-height: 80px;
       }
 
       a {
-        color: $black-transparent;
+        color: $white;
 
         &:hover {
           color: $purple;
@@ -59,7 +75,7 @@ $header-height: 80px;
   }
 
   .nav-icon {
-    color: $black;
+    color: $white;
     cursor: pointer;
     display: block;
     height: 22px;
