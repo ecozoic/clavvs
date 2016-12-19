@@ -1,6 +1,6 @@
 {
   "name": "clavvs",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "hypnotic alt pop // spectral trip hop",
   "scripts": {
     "pretest": "npm run clean:test",
