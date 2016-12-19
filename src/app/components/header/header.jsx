@@ -116,7 +116,7 @@ export class Header extends Component {
     );
 
     return (
-      <header id='header' className={styles.header} ref={node => this.node = node}>
+      <header id='header' className={styles.header + ' ' + styles.dark} ref={node => this.node = node}>
         { menuMode === 'inline' ? popover : null }
         <Row>
           <Col lg={8} md={10} sm={24} xs={24}>
