@@ -18,7 +18,7 @@ export class Hero extends Component {
           <a href='https://soundcloud.com/clavvsatl'>
             <i className='fa fa-fw fa-headphones'></i>
           </a>
-          <a href='https://clavvs.bandcamp.com/'>
+          <a href='https://clavvs.bigcartel.com'>
             <i className='fa fa-fw fa-shopping-cart'></i>
           </a>
         </div>
