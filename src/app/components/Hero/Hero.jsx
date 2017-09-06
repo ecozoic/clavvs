@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Spotify from '../Spotify';
+
 import styles from './Hero.scss';
 
 const Hero = () => (
@@ -12,6 +14,7 @@ const Hero = () => (
         Merch
       </a>
     </div>
+    <Spotify />
   </section>
 );
 
