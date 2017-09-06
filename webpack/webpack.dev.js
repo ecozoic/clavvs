@@ -11,8 +11,8 @@ module.exports = {
       'react-hot-loader/patch',
       `webpack-dev-server/client?http://localhost:${port}`,
       'webpack/hot/only-dev-server',
-      './src/main.hmr'
-    ]
+      './src/main.hmr',
+    ],
   },
 
   devtool: 'cheap-module-source-map',
@@ -21,7 +21,6 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
     filename: 'assets/[name].js',
-    chunkFilename: 'assets/[id].chunk.js'
   },
 
   module: {
@@ -30,26 +29,34 @@ module.exports = {
         test: /\.s?(a|c)ss$/,
         use: [
           'style-loader',
-          'css-loader?modules&importLoaders=2&camelCase',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 2,
+              camelCase: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
         ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.s?(a|c)ss$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
         ],
-        include: path.resolve(__dirname, '../node_modules/antd')
-      }
-    ]
+        include: path.resolve(__dirname, '../node_modules/antd'),
+      },
+    ],
   },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
   ],
 
   devServer: {
@@ -59,6 +66,6 @@ module.exports = {
     compress: true,
     contentBase: path.resolve(__dirname, '../dist'),
     publicPath: '/',
-    port
-  }
+    port,
+  },
 };

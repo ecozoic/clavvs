@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Row, Col, Menu, Popover } from 'antd';
 
 import styles from './Header.scss';
 import logo from '../../../images/logo.png';
 
-export class Header extends Component {
+class Header extends Component {
   state = {
     menuMode: 'horizontal',
   };
@@ -118,7 +118,7 @@ export class Header extends Component {
         { menuMode === 'inline' ? popover : null }
         <Row>
           <Col lg={8} md={10} sm={24} xs={24}>
-            <Link to={'/'} className={styles.logo}>
+            <Link to="/" className={styles.logo}>
               <img alt="logo" src={logo} />
               <h1>CLAVVS</h1>
             </Link>
@@ -131,3 +131,5 @@ export class Header extends Component {
     );
   }
 }
+
+export default Header;

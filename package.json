@@ -3,10 +3,11 @@
   "version": "2.2.2",
   "description": "hypnotic alt pop // spectral trip hop",
   "scripts": {
+    "postinstall": "yarn build",
     "start": "cross-env NODE_ENV=development webpack-dev-server",
-    "prebuild": "npm run clean:build",
-    "build": "cross-env NODE_ENV=production webpack --progress --profile --colors --bail",
-    "serve": "cross-env NODE_ENV=production node server.js",
+    "prebuild": "yarn clean:build",
+    "build": "cross-env NODE_ENV=production webpack --progress --colors --bail",
+    "serve": "pushstate-server dist",
     "clean:build": "rimraf dist"
   },
   "repository": {
@@ -40,7 +41,6 @@
     "eslint-plugin-react": "7.3.0",
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "0.11.2",
-    "html-loader": "0.5.1",
     "html-webpack-plugin": "2.30.1",
     "node-sass": "4.5.3",
     "postcss-cssnext": "3.0.2",

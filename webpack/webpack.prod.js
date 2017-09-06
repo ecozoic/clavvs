@@ -3,18 +3,18 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const extractApp = new ExtractTextPlugin({
-  filename: 'assets/[name].[hash].css'
+  filename: 'assets/[name].[contenthash:8].css',
 });
 
 const extractAntd = new ExtractTextPlugin({
-  filename: 'assets/antd.[hash].css'
+  filename: 'assets/antd.[contenthash:8].css',
 });
 
 module.exports = {
   entry: {
     polyfills: './src/polyfills',
     vendor: './src/vendor',
-    app: './src/main'
+    app: './src/main',
   },
 
   devtool: 'source-map',
@@ -22,8 +22,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
-    filename: 'assets/[name].[hash].js',
-    chunkFilename: 'assets/[id].[hash].chunk.js'
+    filename: 'assets/[name].[chunkhash:8].js',
   },
 
   module: {
@@ -31,20 +30,38 @@ module.exports = {
       {
         test: /\.s?(a|c)ss$/,
         loader: extractApp.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader?importLoaders=2&minimize&modules&camelCase!postcss-loader!sass-loader'
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                importLoaders: 2,
+                camelCase: true,
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+                minimize: true,
+              },
+            },
+            'postcss-loader',
+            'sass-loader',
+          ],
         }),
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.s?(a|c)ss$/,
         loader: extractAntd.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader?minimize'
+          fallback: 'style-loader',
+          use: {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+            },
+          },
         }),
-        include: path.resolve(__dirname, '../node_modules/antd')
-      }
-    ]
+        include: path.resolve(__dirname, '../node_modules/antd'),
+      },
+    ],
   },
 
   plugins: [
@@ -52,10 +69,10 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
-        warnings: false
-      }
+        warnings: false,
+      },
     }),
     extractAntd,
-    extractApp
-  ]
+    extractApp,
+  ],
 };

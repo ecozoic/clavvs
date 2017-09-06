@@ -4,51 +4,53 @@ const SassLintPlugin = require('sasslint-webpack-plugin');
 
 module.exports = {
   resolve: {
-    extensions: ['.jsx', '.js']
+    extensions: ['.jsx', '.js'],
   },
 
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         enforce: 'pre',
         exclude: /node_modules/,
-        use: 'eslint-loader'
+        loader: 'eslint-loader',
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: 'babel-loader?cacheDirectory'
-      },
-      {
-        test: /\.html$/,
-        use: 'html-loader?interpolate'
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+        },
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
-        use: 'file-loader?name=assets/images/[name].[hash].[ext]'
+        use: 'file-loader?name=assets/images/[name].[hash:8].[ext]',
       },
-      {
-        test: /\.ico$/,
-        use: 'file-loader?name=[name].[ext]'
-      }
-    ]
+    ],
   },
 
   plugins: [
     new SassLintPlugin({
-      glob: 'src/**/*.s?(a|c)ss'
+      glob: 'src/**/*.s?(a|c)ss',
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
+      name: ['app', 'vendor', 'polyfills'],
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
+      favicon: 'src/favicon.ico',
     }),
     new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      }
-    })
-  ]
+      'process.env': Object.keys(process.env).reduce((prev, curr) => {
+        // eslint-disable-next-line no-param-reassign
+        prev[curr] = JSON.stringify(process.env[curr]);
+        return prev;
+      }, {}),
+    }),
+  ],
+
+  performance: {
+    hints: false,
+  },
 };

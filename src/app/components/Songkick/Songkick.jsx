@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import styles from './Songkick.scss';
 
-export class Songkick extends Component {
+class Songkick extends Component {
   componentDidMount() {
     const widget = new window.SongkickWidget.Injector();
     widget.loadIFrame();
@@ -27,3 +27,5 @@ export class Songkick extends Component {
     );
   }
 }
+
+export default Songkick;

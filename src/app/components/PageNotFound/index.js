@@ -1,2 +1,1 @@
-/* @flow */
-export * from './page-not-found';
+export { default } from './PageNotFound';
