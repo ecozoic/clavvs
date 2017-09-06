@@ -1,20 +1,15 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "react"
-  ],
   "env": {
     "browser": true,
-    "node": true,
-    "es6": true,
-    "jest": true
+    "node": true
   },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "experimentalObjectRestSpread": true
-    }
-  },
-  "extends": ["eslint:recommended", "plugin:react/recommended"]
+  "extends": "airbnb",
+  "rules": {
+    "import/no-extraneous-dependencies": 0,
+    "import/prefer-default-export": 0,
+    "react/no-unused-prop-types": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "no-console": 0
+  }
 }
