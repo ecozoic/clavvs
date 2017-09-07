@@ -18,7 +18,7 @@ const Mailchimp = () => (
         </div>
         <div className="mc-field-group">
           <label htmlFor="mce-EMAIL">Email Address  <span className="asterisk">*</span></label>
-          <input type="email" value="" name="EMAIL" className="required email" id="mce-EMAIL" />
+          <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" />
         </div>
         <div id="mce-responses" className="clear">
           <div className="response" id="mce-error-response" style={{ display: 'none' }} />
