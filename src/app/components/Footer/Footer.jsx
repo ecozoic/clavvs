@@ -14,7 +14,7 @@ const Footer = () => (
       <li>
         <h2>Website</h2>
         <p>
-          <a href="https://github.com/ecozoic/clavvs">ecozoic</a>
+          <a href="https://github.com/ecozoic">ecozoic</a>
         </p>
       </li>
     </ul>

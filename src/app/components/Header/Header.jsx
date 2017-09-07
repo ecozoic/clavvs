@@ -58,8 +58,8 @@ class Header extends Component {
     const menu = (
       <Menu mode={menuMode} className={styles.nav}>
         <Menu.Item>
-          <a href="https://soundcloud.com/clavvsatl">
-            <i className="fa fa-fw fa-soundcloud" />
+          <a href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1">
+            <i className="fa fa-fw fa-spotify" />
           </a>
         </Menu.Item>
         <Menu.Item>
@@ -83,8 +83,8 @@ class Header extends Component {
           </a>
         </Menu.Item>
         <Menu.Item>
-          <a href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1">
-            <i className="fa fa-fw fa-spotify" />
+          <a href="https://soundcloud.com/clavvsatl">
+            <i className="fa fa-fw fa-soundcloud" />
           </a>
         </Menu.Item>
         <Menu.Item>

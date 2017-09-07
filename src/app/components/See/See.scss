@@ -1,0 +1,16 @@
+@import '../../../theme';
+@import '../../../mixins';
+
+.see {
+  flex-basis: 50%;
+  padding: 0 20px;
+
+  @include mobile {
+    flex-basis: 100%;
+    margin-bottom: 100px;
+  }
+
+  h2 {
+    @include header;
+  }
+}

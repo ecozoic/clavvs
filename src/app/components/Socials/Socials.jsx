@@ -6,8 +6,8 @@ const Socials = () => (
   <div className={styles.socials}>
     <ul>
       <li>
-        <a href="https://soundcloud.com/clavvsatl">
-          <i className="fa fa-fw fa-soundcloud" />
+        <a href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1">
+          <i className="fa fa-fw fa-spotify" />
         </a>
       </li>
       <li>
@@ -31,8 +31,8 @@ const Socials = () => (
         </a>
       </li>
       <li>
-        <a href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1">
-          <i className="fa fa-fw fa-spotify" />
+        <a href="https://soundcloud.com/clavvsatl">
+          <i className="fa fa-fw fa-soundcloud" />
         </a>
       </li>
       <li>
