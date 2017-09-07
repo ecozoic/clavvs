@@ -1,6 +1,6 @@
 {
   "name": "clavvs",
-  "version": "2.2.2",
+  "version": "3.0.0",
   "description": "hypnotic alt pop // spectral trip hop",
   "scripts": {
     "postinstall": "yarn build",
