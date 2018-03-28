@@ -11,7 +11,9 @@ const Listen = () => (
     <div className={styles.spotifyContainer}>
       <Spotify />
     </div>
-    <Soundcloud />
+    <div className={styles.soundcloudContainer}>
+      <Soundcloud />
+    </div>
   </div>
 );
 

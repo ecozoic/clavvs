@@ -6,13 +6,13 @@ const Footer = () => (
   <footer className={styles.footer}>
     <ul>
       <li>
-        <h2>Contact</h2>
+        <h2>mgmt</h2>
         <p>
-          <a href="mailto:clavvsatl@gmail.com">clavvsatl@gmail.com</a>
+          <a href="mailto:ari.fouriezos@managethis.net">ari.fouriezos@managethis.net</a>
         </p>
       </li>
       <li>
-        <h2>Website</h2>
+        <h2>website</h2>
         <p>
           <a href="https://github.com/ecozoic">ecozoic</a>
         </p>
