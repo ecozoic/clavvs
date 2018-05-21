@@ -3,15 +3,26 @@
     ["env", {
       "modules": false
     }],
-    "stage-2",
-    "react"
-  ],
-  "plugins": [
-    "react-hot-loader/babel"
+    "react",
+    "stage-2"
   ],
   "env": {
+    "development": {
+      "plugins": [
+        "styled-components",
+        "react-hot-loader/babel"
+      ]
+    },
+    "production": {
+      "plugins": [
+        "styled-components",
+        "react-hot-loader/babel"
+      ]
+    },
     "test": {
       "plugins": [
+        "styled-components",
+        "react-hot-loader/babel",
         "transform-es2015-modules-commonjs"
       ]
     }

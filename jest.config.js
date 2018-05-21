@@ -5,10 +5,10 @@ module.exports = {
   coverageReporters: ['json', 'lcov'],
   coverageThreshold: {
     global: {
-      branches: 70,
-      functions: 70,
-      lines: 70,
-      statements: 70,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
     },
   },
   roots: ['src'],
@@ -17,5 +17,5 @@ module.exports = {
   ],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   testEnvironment: 'jsdom',
-  testRegex: '(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$'
+  testRegex: '(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$',
 };
