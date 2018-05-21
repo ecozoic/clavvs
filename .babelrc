@@ -1,15 +1,19 @@
 {
   "presets": [
-    ["es2015", { "modules": false }],
-    "react",
-    "stage-0"
+    ["env", {
+      "modules": false
+    }],
+    "stage-2",
+    "react"
   ],
   "plugins": [
-    ["import", { "libraryName": "antd", "style": "css" }]
+    "react-hot-loader/babel"
   ],
   "env": {
-    "development": {
-      "plugins": ["react-hot-loader/babel"]
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
     }
   }
 }
