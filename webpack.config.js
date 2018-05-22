@@ -3,22 +3,42 @@ require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const Dotenv = require('dotenv-webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-// TODO: optimize/splitchunks/ccp
-// TODO: env plugins
-// TODO: dotenv plugin
-// TODO: stylelint loader
-// dev - HMR, prod - bundle analyzer
-// TODO: pushstate-server compress
-// TODO: file/image loaders (only compress for prod)
-// TODO: file hashing
-// TODO: browserlist, optimize babel-preset-env
+// TODO: browserlist, optimize babel-preset-env, polyfill
 // TODO: styled-components refactor
-// TODO: css reset?
-// TODO: remove antd / enquire.js from header (new component lib?)
-// TODO: named module ids / hashed module ids
+
+const devPlugins = [
+  new webpack.HotModuleReplacementPlugin(),
+];
+
+const prodPlugins = [
+  new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    reportFilename: '../reports/bundle.html',
+    defaultSizes: 'parsed',
+    openAnalyzer: false,
+    generateStatsFile: false,
+    logLevel: 'info',
+  }),
+  new webpack.HashedModuleIdsPlugin(),
+];
+
+const commonPlugins = [
+  new HtmlWebpackPlugin({
+    template: 'src/index.html',
+    favicon: 'src/favicon.ico',
+  }),
+  new Dotenv({
+    safe: true,
+    systemvars: true,
+  }),
+];
+
+const plugins = commonPlugins.concat(isProduction ? prodPlugins : devPlugins);
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -26,12 +46,12 @@ module.exports = {
   entry: './src/index',
 
   output: {
-    filename: isProduction ? 'bundle.[chunkhash:8].js' : 'bundle.js',
+    filename: isProduction ? 'app.[chunkhash:8].js' : 'app.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
 
-  modules: {
+  module: {
     rules: [
       {
         enforce: 'pre',
@@ -39,7 +59,10 @@ module.exports = {
         include: [
           path.resolve(__dirname, 'src'),
         ],
-        loader: 'eslint-loader',
+        use: [
+          'eslint-loader',
+          'stylelint-custom-processor-loader',
+        ],
       },
       {
         test: /\.jsx?/,
@@ -64,14 +87,20 @@ module.exports = {
               outputPath: 'images/',
             },
           },
-          'image-webpack-loader',
-        ],
+          isProduction ? 'image-webpack-loader' : undefined,
+        ].filter(l => !!l),
       },
     ],
   },
 
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
+  },
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 
   devtool: isProduction ? 'source-map' : 'eval',
@@ -85,11 +114,5 @@ module.exports = {
     port: process.env.PORT || 8080,
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      favicon: 'src/favicon.ico',
-      template: 'src/index.html',
-    }),
-  ],
+  plugins,
 };

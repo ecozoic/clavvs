@@ -2,10 +2,8 @@ import React from 'react';
 
 import Songkick from '../Songkick';
 
-import styles from './See.scss';
-
 const See = () => (
-  <div className={styles.see}>
+  <div>
     <h2>See</h2>
     <Songkick />
   </div>

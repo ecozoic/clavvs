@@ -1,9 +1,7 @@
 import React from 'react';
 
-import styles from './Socials.scss';
-
 const Socials = () => (
-  <div className={styles.socials}>
+  <div>
     <ul>
       <li>
         <a href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1">
