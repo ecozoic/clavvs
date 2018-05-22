@@ -6,15 +6,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-// TODO: optimize/splitchunks
+// TODO: optimize/splitchunks/ccp
 // TODO: env plugins
 // TODO: dotenv plugin
 // TODO: stylelint loader
 // dev - HMR, prod - bundle analyzer
 // TODO: pushstate-server compress
-// TODO: file/image loaders
+// TODO: file/image loaders (only compress for prod)
 // TODO: file hashing
 // TODO: browserlist, optimize babel-preset-env
+// TODO: styled-components refactor
+// TODO: css reset?
+// TODO: remove antd / enquire.js from header (new component lib?)
+// TODO: named module ids / hashed module ids
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -22,7 +26,7 @@ module.exports = {
   entry: './src/index',
 
   output: {
-    filename: isProduction ? 'bundle.min.js' : 'bundle.js',
+    filename: isProduction ? 'bundle.[chunkhash:8].js' : 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
@@ -46,6 +50,22 @@ module.exports = {
         options: {
           cacheDirectory: true,
         },
+      },
+      {
+        test: /\.(png|jpg)/,
+        include: [
+          path.resolve(__dirname, 'src'),
+        ],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: isProduction ? '[name].[hash:8].[ext]' : '[name].[ext]',
+              outputPath: 'images/',
+            },
+          },
+          'image-webpack-loader',
+        ],
       },
     ],
   },
