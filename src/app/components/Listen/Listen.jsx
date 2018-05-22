@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
+import SectionHeader from '../SectionHeader';
 import Spotify from '../Spotify';
 import Soundcloud from '../Soundcloud';
 
 const Listen = () => (
-  <div>
-    <h2>Listen</h2>
+  <Fragment>
+    <SectionHeader>Listen</SectionHeader>
     <div>
       <Spotify />
     </div>
     <div>
       <Soundcloud />
     </div>
-  </div>
+  </Fragment>
 );
 
 export default Listen;

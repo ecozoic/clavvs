@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
+import SectionHeader from '../SectionHeader';
 import Songkick from '../Songkick';
 
 const See = () => (
-  <div>
-    <h2>See</h2>
+  <Fragment>
+    <SectionHeader>See</SectionHeader>
     <Songkick />
-  </div>
+  </Fragment>
 );
 
 export default See;

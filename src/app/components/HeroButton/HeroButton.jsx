@@ -1,25 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
-const HeroButton = props => (
-  <a href={props.href} className={props.className}>
-    {props.children}
-  </a>
-);
-
-HeroButton.propTypes = {
-  className: PropTypes.string,
-  href: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
-
-HeroButton.defaultProps = {
-  href: '/',
-  className: undefined,
-};
-
-export default styled(HeroButton)`
+const HeroButton = styled.a`
   background-color: transparent;
   background-image: none;
   border: 4px solid rgba(19, 24, 29, .8);
@@ -61,3 +42,5 @@ export default styled(HeroButton)`
     transition: none;
   }
 `;
+
+export default HeroButton;

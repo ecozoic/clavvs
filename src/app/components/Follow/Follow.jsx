@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
+import SectionHeader from '../SectionHeader';
 import Mailchimp from '../Mailchimp';
 import Socials from '../Socials';
 
 const Follow = () => (
-  <div>
-    <h2>Follow</h2>
+  <Fragment>
+    <SectionHeader>Follow</SectionHeader>
     <Mailchimp />
     <Socials />
-  </div>
+  </Fragment>
 );
 
 export default Follow;

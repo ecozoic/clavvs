@@ -18,13 +18,6 @@
         "styled-components",
         "react-hot-loader/babel"
       ]
-    },
-    "test": {
-      "plugins": [
-        "styled-components",
-        "react-hot-loader/babel",
-        "transform-es2015-modules-commonjs"
-      ]
     }
   }
 }
