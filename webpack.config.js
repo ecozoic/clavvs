@@ -9,7 +9,6 @@ const Dotenv = require('dotenv-webpack');
 const isProduction = process.env.NODE_ENV === 'production';
 
 // TODO: browserlist, optimize babel-preset-env, polyfill
-// TODO: styled-components refactor
 
 const devPlugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -41,7 +40,7 @@ const commonPlugins = [
 const plugins = commonPlugins.concat(isProduction ? prodPlugins : devPlugins);
 
 module.exports = {
-  mode: process.env.NODE_ENV || 'development',
+  mode: isProduction ? 'production' : 'development',
 
   entry: './src/index',
 
