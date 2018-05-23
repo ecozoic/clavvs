@@ -9,10 +9,6 @@ const overrideMailChimp = css`
     margin: 0 auto;
     max-width: 800px;
 
-    h2 {
-      color: #fff;
-    }
-
     .asterisk {
       color: #639;
     }
@@ -40,9 +36,27 @@ export default () => injectGlobal`
 
   ${overrideMailChimp}
 
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     background: #13181d;
     color: #fff;
     font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    margin: 0;
   }
 `;
