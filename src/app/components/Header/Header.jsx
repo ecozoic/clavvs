@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import logo from '../../../images/logo.png';
+import socials from '../../data/socials';
 
 const StyledHeader = styled.header`
   background: #13181d;
@@ -59,41 +60,13 @@ const Header = () => (
       <LogoHeader>CLAVVS</LogoHeader>
     </Link>
     <HeaderList>
-      <HeaderListItem>
-        <a href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1">
-          <i className="fa fa-fw fa-spotify" />
-        </a>
-      </HeaderListItem>
-      <HeaderListItem>
-        <a href="https://www.facebook.com/clavvsatl">
-          <i className="fa fa-fw fa-facebook" />
-        </a>
-      </HeaderListItem>
-      <HeaderListItem>
-        <a href="https://twitter.com/clavvsatl">
-          <i className="fa fa-fw fa-twitter" />
-        </a>
-      </HeaderListItem>
-      <HeaderListItem>
-        <a href="https://www.instagram.com/clavvsatl">
-          <i className="fa fa-fw fa-instagram" />
-        </a>
-      </HeaderListItem>
-      <HeaderListItem>
-        <a href="https://www.youtube.com/user/clawsatl">
-          <i className="fa fa-fw fa-youtube" />
-        </a>
-      </HeaderListItem>
-      <HeaderListItem>
-        <a href="https://soundcloud.com/clavvsatl">
-          <i className="fa fa-fw fa-soundcloud" />
-        </a>
-      </HeaderListItem>
-      <HeaderListItem>
-        <a href="https://clavvs.bandcamp.com/">
-          <i className="fa fa-fw fa-bandcamp" />
-        </a>
-      </HeaderListItem>
+      {socials.map(social => (
+        <HeaderListItem key={social.id}>
+          <a href={social.href}>
+            <i className={social.icon} />
+          </a>
+        </HeaderListItem>
+      ))}
     </HeaderList>
   </StyledHeader>
 );

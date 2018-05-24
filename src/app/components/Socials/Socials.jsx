@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import socials from '../../data/socials';
+
 const SocialsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -24,41 +26,13 @@ const SocialsListItem = styled.li`
 
 const Socials = () => (
   <SocialsList>
-    <SocialsListItem>
-      <a href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1">
-        <i className="fa fa-fw fa-spotify" />
-      </a>
-    </SocialsListItem>
-    <SocialsListItem>
-      <a href="https://www.facebook.com/clavvsatl">
-        <i className="fa fa-fw fa-facebook" />
-      </a>
-    </SocialsListItem>
-    <SocialsListItem>
-      <a href="https://twitter.com/clavvsatl">
-        <i className="fa fa-fw fa-twitter" />
-      </a>
-    </SocialsListItem>
-    <SocialsListItem>
-      <a href="https://www.instagram.com/clavvsatl">
-        <i className="fa fa-fw fa-instagram" />
-      </a>
-    </SocialsListItem>
-    <SocialsListItem>
-      <a href="https://www.youtube.com/user/clawsatl">
-        <i className="fa fa-fw fa-youtube" />
-      </a>
-    </SocialsListItem>
-    <SocialsListItem>
-      <a href="https://soundcloud.com/clavvsatl">
-        <i className="fa fa-fw fa-soundcloud" />
-      </a>
-    </SocialsListItem>
-    <SocialsListItem>
-      <a href="https://clavvs.bandcamp.com/">
-        <i className="fa fa-fw fa-bandcamp" />
-      </a>
-    </SocialsListItem>
+    {socials.map(social => (
+      <SocialsListItem key={social.id}>
+        <a href={social.href}>
+          <i className={social.icon} />
+        </a>
+      </SocialsListItem>
+    ))}
   </SocialsList>
 );
 
