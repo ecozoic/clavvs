@@ -7,7 +7,7 @@ import Home from './components/Home';
 const App = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" render={() => <Home />} />
+      <Route exact path="/" component={Home} />
       <Route render={() => <Redirect to="/" />} />
     </Switch>
   </BrowserRouter>
