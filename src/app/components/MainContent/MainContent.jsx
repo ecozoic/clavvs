@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import Hero from '../Hero';
 import Listen from '../Listen';
@@ -6,14 +6,12 @@ import See from '../See';
 import Follow from '../Follow';
 
 const MainContent = () => (
-  <div>
+  <Fragment>
     <Hero />
-    <div>
-      <Listen />
-      <See />
-    </div>
+    <Listen />
+    <See />
     <Follow />
-  </div>
+  </Fragment>
 );
 
 export default MainContent;

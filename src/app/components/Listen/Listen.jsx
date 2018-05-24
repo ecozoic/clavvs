@@ -7,12 +7,8 @@ import Soundcloud from '../Soundcloud';
 const Listen = () => (
   <Fragment>
     <SectionHeader>Listen</SectionHeader>
-    <div>
-      <Spotify />
-    </div>
-    <div>
-      <Soundcloud />
-    </div>
+    <Spotify />
+    <Soundcloud />
   </Fragment>
 );
 

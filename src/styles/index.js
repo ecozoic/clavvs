@@ -7,7 +7,6 @@ const overrideMailChimp = css`
     clear: left;
     font: 14px 'Open Sans', sans-serif;
     margin: 0 auto;
-    max-width: 800px;
 
     .asterisk {
       color: #639;
