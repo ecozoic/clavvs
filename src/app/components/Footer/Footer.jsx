@@ -1,31 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import footer from '../../data/footer';
+
 const StyledFooter = styled.footer`
   background: ${props => props.theme.colors.black};
   border-top: 1px solid ${props => props.theme.colors.purple};
-  clear: both;
   color: ${props => props.theme.colors.gray};
   font-size: 12px;
 `;
 
 const FooterList = styled.ul`
-  list-style: none;
-  margin: 0 2%;
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 24px;
 `;
 
 const FooterListItem = styled.li`
-  float: left;
+  flex-basis: 50%;
   padding: 24px 2%;
-  width: 50%;
 `;
 
 const FooterListHeader = styled.h2`
   color: ${props => props.theme.colors.gray};
   font-size: 14px;
   font-weight: 500;
-  margin: 0 auto 8px;
+  margin-bottom: 8px;
 `;
 
 const FooterListContent = styled.p`
@@ -45,22 +45,16 @@ const FooterListLink = styled.a`
 const Footer = () => (
   <StyledFooter>
     <FooterList>
-      <FooterListItem>
-        <FooterListHeader>mgmt</FooterListHeader>
-        <FooterListContent>
-          <FooterListLink href="mailto:ari.fouriezos@managethis.net">
-            ari.fouriezos@managethis.net
-          </FooterListLink>
-        </FooterListContent>
-      </FooterListItem>
-      <FooterListItem>
-        <FooterListHeader>website</FooterListHeader>
-        <FooterListContent>
-          <FooterListLink href="https://github.com/ecozoic">
-            ecozoic
-          </FooterListLink>
-        </FooterListContent>
-      </FooterListItem>
+      {footer.links.map(link => (
+        <FooterListItem key={link.id}>
+          <FooterListHeader>{link.header}</FooterListHeader>
+          <FooterListContent>
+            <FooterListLink href={link.href}>
+              {link.text}
+            </FooterListLink>
+          </FooterListContent>
+        </FooterListItem>
+      ))}
     </FooterList>
   </StyledFooter>
 );
