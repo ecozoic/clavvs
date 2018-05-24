@@ -18,7 +18,7 @@ const HeroImage = styled.section`
 
 const HeroButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 `;
 
 const Hero = () => (

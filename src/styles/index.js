@@ -1,5 +1,5 @@
 import { injectGlobal, css } from 'styled-components';
-import styledNormalize from 'styled-normalize';
+import styledReset from 'styled-reset';
 
 const overrideMailChimp = css`
   #mc_embed_signup {
@@ -31,7 +31,7 @@ const overrideMailChimp = css`
 `;
 
 export default () => injectGlobal`
-  ${styledNormalize}
+  ${styledReset}
 
   ${overrideMailChimp}
 
@@ -44,18 +44,5 @@ export default () => injectGlobal`
     color: #fff;
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  p {
-    margin: 0;
   }
 `;

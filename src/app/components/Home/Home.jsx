@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import Header from '../Header';
 import MainContent from '../MainContent';
 import Footer from '../Footer';
 
 const Home = () => (
-  <div>
+  <Fragment>
     <Header />
     <MainContent />
     <Footer />
-  </div>
+  </Fragment>
 );
 
 export default Home;
