@@ -1,9 +1,11 @@
 import { sortBy } from 'lodash-es';
 
+import widgets from './widgets';
+
 export default sortBy([
   {
     id: 'spotify',
-    href: 'https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1',
+    href: `https://open.spotify.com/artist/${widgets.spotify.artist}`,
     icon: 'fa fa-fw fa-spotify',
     enabled: true,
     sortIndex: 0,

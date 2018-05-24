@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import HeroButton from '../HeroButton';
+import widgets from '../../data/widgets';
 
 import img from '../../../images/clavvs_single.png';
 
@@ -24,7 +25,7 @@ const HeroButtonContainer = styled.div`
 const Hero = () => (
   <HeroImage>
     <HeroButtonContainer>
-      <HeroButton href="https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1">
+      <HeroButton href={`https://open.spotify.com/artist/${widgets.spotify.artist}`}>
         Music
       </HeroButton>
       <HeroButton href="https://clavvs.bigcartel.com">

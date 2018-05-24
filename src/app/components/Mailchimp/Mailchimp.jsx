@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Mailchimp = () => (
+const Mailchimp = props => (
   <div id="mc_embed_signup">
     <form
-      action="//clavvs.us1.list-manage.com/subscribe/post?u=6b3bedaf97619356c511dddb9&amp;id=e1016c7f40"
+      action={props.action}
       method="post"
       id="mc-embedded-subscribe-form"
       name="mc-embedded-subscribe-form"
@@ -12,7 +13,7 @@ const Mailchimp = () => (
       noValidate
     >
       <div id="mc_embed_signup_scroll">
-        <h2>GET FREE CLAVVS MUSIC + NEWS</h2>
+        <h2>{props.header}</h2>
         <div className="indicates-required">
           <span className="asterisk">*</span> indicates required
         </div>
@@ -34,5 +35,10 @@ const Mailchimp = () => (
     </form>
   </div>
 );
+
+Mailchimp.propTypes = {
+  action: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
+};
 
 export default Mailchimp;

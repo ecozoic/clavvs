@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Songkick extends Component {
+  static propTypes = {
+    artist: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+  };
+
   componentDidMount() {
     const widget = new window.SongkickWidget.Injector();
     widget.loadIFrame();
@@ -9,7 +15,7 @@ class Songkick extends Component {
   render() {
     return (
       <a
-        href="http://www.songkick.com/artists/8760929"
+        href={`http://www.songkick.com/artists/${this.props.artist}`}
         className="songkick-widget"
         data-theme="dark"
         data-track-button="on"
@@ -17,7 +23,7 @@ class Songkick extends Component {
         data-font-color="#ffffff"
         data-background-color="transparent"
       >
-        CLAVVS tour dates
+        {this.props.text}
       </a>
     );
   }
