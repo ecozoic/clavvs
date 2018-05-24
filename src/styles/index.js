@@ -1,28 +1,30 @@
 import { injectGlobal, css } from 'styled-components';
 import styledReset from 'styled-reset';
 
+import theme from './theme';
+
 const overrideMailChimp = css`
   #mc_embed_signup {
-    background: #13181d;
+    background: ${theme.colors.black};
     clear: left;
-    font: 14px 'Open Sans', sans-serif;
+    font: 14px ${theme.fontFamily};
     margin: 0 auto;
 
     .asterisk {
-      color: #639;
+      color: ${theme.colors.purple};
     }
   }
 
   #mce-EMAIL {
-    color: #13181d;
+    color: ${theme.colors.black};
 
     &:focus {
-      outline-color: #639;
+      outline-color: ${theme.colors.purple};
     }
   }
 
   #mc-embedded-subscribe {
-    background: #639 !important;
+    background: ${theme.colors.purple} !important;
 
     &:focus {
       outline: 0;
@@ -40,9 +42,9 @@ export default () => injectGlobal`
   }
 
   body {
-    background: #13181d;
-    color: #fff;
-    font-family: 'Open Sans', sans-serif;
+    background: ${theme.colors.black};
+    color: ${theme.colors.white};
+    font-family: ${theme.fontFamily};
     line-height: 1.5;
   }
 `;

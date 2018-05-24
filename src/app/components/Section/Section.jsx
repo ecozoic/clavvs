@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const SectionHeader = styled.h2`
-  border-bottom: 1px solid #639;
-  color: #fff;
+  border-bottom: 1px solid ${props => props.theme.colors.purple};
+  color: ${props => props.theme.colors.white};
   font-size: 48px;
   font-weight: 400;
   margin: auto;

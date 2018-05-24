@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const HeroButton = styled.a`
   background-color: transparent;
   background-image: none;
-  border: 4px solid rgba(19, 24, 29, .8);
+  border: 4px solid ${props => props.theme.colors.blackTransparent};
   border-radius: 0;
-  color: rgba(19, 24, 29, .8);
+  color: ${props => props.theme.colors.blackTransparent};
   cursor: pointer;
   display: inline-block;
   font-size: 32px;
@@ -29,16 +29,16 @@ const HeroButton = styled.a`
   }
 
   &:hover {
-    background-color: #13181d;
-    border-color: #639;
-    color: #639;
+    background-color: ${props => props.theme.colors.black};
+    border-color: ${props => props.theme.colors.purple};
+    color: ${props => props.theme.colors.purple};
     text-decoration: none;
   }
 
   &:active {
-    background-color: #13181d;
-    border-color: #639;
-    color: #639;
+    background-color: ${props => props.theme.colors.black};
+    border-color: ${props => props.theme.colors.purple};
+    color: ${props => props.theme.colors.purple};
     transition: none;
   }
 `;

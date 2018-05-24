@@ -6,8 +6,8 @@ import logo from '../../../images/logo.png';
 import socials from '../../data/socials';
 
 const StyledHeader = styled.header`
-  background: #13181d;
-  border-bottom: 1px solid #639;
+  background: ${props => props.theme.colors.black};
+  border-bottom: 1px solid ${props => props.theme.colors.purple};
   height: 80px;
   margin-bottom: 24px;
   padding: 0 4%;
@@ -45,10 +45,10 @@ const HeaderListItem = styled.li`
   }
 
   & > a {
-    color: #fff;
+    color: ${props => props.theme.colors.white};
 
     &:hover {
-      color: #639;
+      color: ${props => props.theme.colors.purple};
     }
   }
 `;

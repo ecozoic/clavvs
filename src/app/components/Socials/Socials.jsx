@@ -13,13 +13,13 @@ const SocialsList = styled.ul`
 
 const SocialsListItem = styled.li`
   & > a {
-    color: #fff;
+    color: ${props => props.theme.colors.white};
     display: block;
     font-size: 72px;
     margin: 0 10px;
 
     &:hover {
-      color: #639;
+      color: ${props => props.theme.colors.purple};
     }
   }
 `;

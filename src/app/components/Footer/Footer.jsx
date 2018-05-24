@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  background: #13181d;
-  border-top: 1px solid #639;
+  background: ${props => props.theme.colors.black};
+  border-top: 1px solid ${props => props.theme.colors.purple};
   clear: both;
-  color: #666;
+  color: ${props => props.theme.colors.gray};
   font-size: 12px;
 `;
 
@@ -22,23 +22,23 @@ const FooterListItem = styled.li`
 `;
 
 const FooterListHeader = styled.h2`
-  color: #666;
+  color: ${props => props.theme.colors.gray};
   font-size: 14px;
   font-weight: 500;
   margin: 0 auto 8px;
 `;
 
 const FooterListContent = styled.p`
-  color: #fff;
+  color: ${props => props.theme.colors.white};
 `;
 
 const FooterListLink = styled.a`
-  color: #fff;
+  color: ${props => props.theme.colors.white};
   text-decoration: none;
   transition: color .3s ease;
 
   &:hover {
-    color: #639;
+    color: ${props => props.theme.colors.purple};
   }
 `;
 

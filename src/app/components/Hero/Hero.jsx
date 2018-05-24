@@ -8,7 +8,7 @@ import img from '../../../images/clavvs_single.png';
 
 const HeroImage = styled.section`
   background: url('${img}') no-repeat center / cover;
-  border-bottom: 1px solid #639;
+  border-bottom: 1px solid ${props => props.theme.colors.purple};
   display: flex;
   flex-direction: column;
   height: 100vh;
