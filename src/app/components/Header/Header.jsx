@@ -1,39 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { throttle } from 'lodash-es';
 
 import header from '../../data/header';
 import socials from '../../data/socials';
 
-const StyledHeader = styled.header`
-  background: ${props => props.theme.colors.black};
-  border-bottom: 1px solid ${props => props.theme.colors.purple};
-  height: 80px;
-  transition: border .5s cubic-bezier(.455, .03, .515, .955), background .5s cubic-bezier(.455, .03, .515, .955);
-  width: 100%;
-  z-index: 2;
-`;
-
-const Logo = styled.img`
-  height: 70px;
-  line-height: 70px;
-  margin-top: 5px;
+const StyledNav = styled.nav`
+  background-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.black)};
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.purple)};
+  transition: all .5s cubic-bezier(.455, .03, .515, .955);
 `;
 
 const LogoHeader = styled.h1`
   display: none;
 `;
 
-const HeaderList = styled.ul`
-  float: right;
-`;
-
 const HeaderListItem = styled.li`
   border-bottom: 3px solid transparent;
   display: inline-block;
-  height: 80px;
-  line-height: 80px;
-  min-width: 72px;
   text-align: center;
 
   &:hover {
@@ -49,31 +36,54 @@ const HeaderListItem = styled.li`
   }
 `;
 
-const Header = () => (
-  <StyledHeader>
-    <nav className="navbar" aria-label="main navigation">
-      <div className="navbar-brand">
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Link className="navbar-item" to="/">
-          <Logo alt="logo" src={header.logoUrl} />
-          <LogoHeader>CLAVVS</LogoHeader>
-        </Link>
-      </div>
-      <div className="navbar-menu">
-        <div className="navbar-end">
-          <HeaderList>
-            {socials.map(social => (
-              <HeaderListItem key={social.id}>
-                <a href={social.href}>
-                  <i className={social.icon} />
-                </a>
-              </HeaderListItem>
-            ))}
-          </HeaderList>
-        </div>
-      </div>
-    </nav>
-  </StyledHeader>
-);
+class Header extends Component {
+  state = {
+    scrollTop: 0,
+  };
 
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = throttle(() => {
+    this.setState({
+      scrollTop: window.scrollY,
+    });
+  }, 100);
+
+  render() {
+    return (
+      <StyledNav
+        transparent={this.state.scrollTop === 0}
+        className="navbar is-fixed-top"
+        aria-label="main navigation"
+      >
+        <div className="navbar-brand">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <Link className="navbar-item" to="/">
+            <img alt="logo" src={header.logoUrl} />
+            <LogoHeader>CLAVVS</LogoHeader>
+          </Link>
+        </div>
+        <div className="navbar-menu">
+          <div className="navbar-end">
+            <ul>
+              {socials.map(social => (
+                <HeaderListItem key={social.id}>
+                  <a href={social.href}>
+                    <i className={social.icon} />
+                  </a>
+                </HeaderListItem>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </StyledNav>
+    );
+  }
+}
 export default Header;
