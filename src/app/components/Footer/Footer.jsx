@@ -8,7 +8,7 @@ const Footer = () => (
       <li>
         <h2>mgmt</h2>
         <p>
-          <a href="mailto:ari.fouriezos@managethis.net">ari.fouriezos@managethis.net</a>
+          <a href="mailto:ari@sorrymomproductions.com">ari@sorrymomproductions.com</a>
         </p>
       </li>
       <li>
