@@ -24,6 +24,7 @@ const overrideMailChimp = css`
 
   #mc-embedded-subscribe {
     background: ${theme.colors.purple} !important;
+    font-family: ${theme.font.family};
 
     &:focus {
       outline: 0;

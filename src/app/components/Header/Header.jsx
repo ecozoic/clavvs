@@ -2,16 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import logo from '../../../images/logo.png';
+import header from '../../data/header';
 import socials from '../../data/socials';
 
 const StyledHeader = styled.header`
   background: ${props => props.theme.colors.black};
   border-bottom: 1px solid ${props => props.theme.colors.purple};
   height: 80px;
-  margin-bottom: 24px;
-  padding: 0 4%;
-  position: fixed;
   transition: border .5s cubic-bezier(.455, .03, .515, .955), background .5s cubic-bezier(.455, .03, .515, .955);
   width: 100%;
   z-index: 2;
@@ -29,7 +26,6 @@ const LogoHeader = styled.h1`
 
 const HeaderList = styled.ul`
   float: right;
-  font-size: 20px;
 `;
 
 const HeaderListItem = styled.li`
@@ -55,19 +51,28 @@ const HeaderListItem = styled.li`
 
 const Header = () => (
   <StyledHeader>
-    <Link to="/" href="/">
-      <Logo alt="logo" src={logo} />
-      <LogoHeader>CLAVVS</LogoHeader>
-    </Link>
-    <HeaderList>
-      {socials.map(social => (
-        <HeaderListItem key={social.id}>
-          <a href={social.href}>
-            <i className={social.icon} />
-          </a>
-        </HeaderListItem>
-      ))}
-    </HeaderList>
+    <nav className="navbar" aria-label="main navigation">
+      <div className="navbar-brand">
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <Link className="navbar-item" to="/">
+          <Logo alt="logo" src={header.logoUrl} />
+          <LogoHeader>CLAVVS</LogoHeader>
+        </Link>
+      </div>
+      <div className="navbar-menu">
+        <div className="navbar-end">
+          <HeaderList>
+            {socials.map(social => (
+              <HeaderListItem key={social.id}>
+                <a href={social.href}>
+                  <i className={social.icon} />
+                </a>
+              </HeaderListItem>
+            ))}
+          </HeaderList>
+        </div>
+      </div>
+    </nav>
   </StyledHeader>
 );
 
