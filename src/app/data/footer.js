@@ -5,8 +5,8 @@ export default {
     {
       id: 'mgmt',
       header: 'mgmt',
-      text: 'ari.fouriezos@managethis.net',
-      href: 'mailto:ari.fouriezos@managethis.net',
+      text: 'ari@sorrymomproductions.com',
+      href: 'mailto:ari@sorrymomproductions.com',
       enabled: true,
       sortIndex: 0,
     },

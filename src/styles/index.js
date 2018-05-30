@@ -1,5 +1,4 @@
 import { injectGlobal, css } from 'styled-components';
-import styledReset from 'styled-reset';
 
 import theme from './theme';
 
@@ -33,18 +32,17 @@ const overrideMailChimp = css`
 `;
 
 export default () => injectGlobal`
-  ${styledReset}
-
   ${overrideMailChimp}
 
-  * {
-    box-sizing: border-box;
+  html {
+    background-color: ${theme.colors.black};
+    font-size: ${theme.font.rootSize};
   }
 
   body {
-    background: ${theme.colors.black};
     color: ${theme.colors.white};
-    font-family: ${theme.fontFamily};
-    line-height: 1.5;
+    font-family: ${theme.font.family};
+    font-weight: ${theme.font.fontWeight};
+    line-height: ${theme.font.lineHeight};
   }
 `;

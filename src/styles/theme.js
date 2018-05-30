@@ -6,5 +6,10 @@ export default {
     blackTransparent: 'rgba(19, 24, 29, .8)',
     purple: '#639',
   },
-  fontFamily: '"Open Sans", sans-serif',
+  font: {
+    family: '"Open Sans", sans-serif',
+    rootSize: '16px',
+    lineHeight: 1.5,
+    fontWeight: 400,
+  },
 };
