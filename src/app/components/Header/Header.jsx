@@ -18,6 +18,14 @@ const LogoHeader = styled.h1`
   display: none;
 `;
 
+const Logo = styled.img`
+  max-height: 4rem !important;
+`;
+
+const Burger = styled.div`
+  height: auto;
+`;
+
 const HeaderListItem = styled.li`
   border-bottom: 3px solid transparent;
   display: inline-block;
@@ -65,9 +73,14 @@ class Header extends Component {
         <div className="navbar-brand">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <Link className="navbar-item" to="/">
-            <img alt="logo" src={header.logoUrl} />
+            <Logo alt="logo" src={header.logoUrl} />
             <LogoHeader>CLAVVS</LogoHeader>
           </Link>
+          <Burger role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </Burger>
         </div>
         <div className="navbar-menu">
           <div className="navbar-end">
