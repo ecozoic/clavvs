@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Form = styled.form`
-  margin: 0 auto;
-  max-width: 800px;
-`;
-
 const Button = styled.button`
   background-color: ${props => props.theme.colors.purple} !important;
   color: ${props => props.theme.colors.white} !important;
@@ -29,7 +24,7 @@ const Header = styled.h2`
 `;
 
 const Mailchimp = props => (
-  <Form
+  <form
     action={props.action}
     method="post"
     target="_blank"
@@ -63,7 +58,7 @@ const Mailchimp = props => (
         </Button>
       </div>
     </div>
-  </Form>
+  </form>
 );
 
 Mailchimp.propTypes = {
