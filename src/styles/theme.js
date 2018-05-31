@@ -29,7 +29,7 @@ export default {
     smallest: 0.236,
   },
   transition: {
-    duration: '.5s',
+    duration: '.3s',
     easing: 'ease-in-out',
   },
   breakpoints: {

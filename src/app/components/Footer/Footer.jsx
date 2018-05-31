@@ -7,19 +7,12 @@ const StyledFooter = styled.footer`
   background-color: ${props => props.theme.colors.black};
   border-top: 1px solid ${props => props.theme.colors.purple};
   color: ${props => props.theme.colors.gray};
-`;
-
-const FooterList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const FooterListItem = styled.li`
-  flex-basis: 50%;
+  padding-bottom: 3rem;
 `;
 
 const FooterListHeader = styled.h2`
   color: ${props => props.theme.colors.gray};
+  margin-bottom: ${props => props.theme.scale.small}rem;
 `;
 
 const FooterListContent = styled.p`
@@ -38,18 +31,18 @@ const FooterListLink = styled.a`
 const Footer = () => (
   <StyledFooter className="footer">
     <div className="container">
-      <FooterList>
+      <div className="columns">
         {footer.links.map(link => (
-          <FooterListItem key={link.id}>
+          <div className="column" key={link.id}>
             <FooterListHeader>{link.header}</FooterListHeader>
             <FooterListContent>
               <FooterListLink href={link.href}>
                 {link.text}
               </FooterListLink>
             </FooterListContent>
-          </FooterListItem>
+          </div>
         ))}
-      </FooterList>
+      </div>
     </div>
   </StyledFooter>
 );

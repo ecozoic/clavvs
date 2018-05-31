@@ -3,12 +3,17 @@ import styled from 'styled-components';
 
 import socials from '../../data/socials';
 
-const SocialsListItem = styled.li`
-  display: inline-block;
+const SocialsContainer = styled.div`
+  margin: ${props => props.theme.scale.bigger}rem 0;
+`;
+
+const SocialsListItem = styled.div`
+  font-size: ${props => props.theme.scale.biggest}rem;
+  text-align: center;
 
   & > a {
     color: ${props => props.theme.colors.white};
-    transition: all ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
+    transition: color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
 
     &:hover {
       color: ${props => props.theme.colors.purple};
@@ -17,15 +22,17 @@ const SocialsListItem = styled.li`
 `;
 
 const Socials = () => (
-  <ul>
-    {socials.map(social => (
-      <SocialsListItem key={social.id}>
-        <a href={social.href}>
-          <i className={social.icon} />
-        </a>
-      </SocialsListItem>
-    ))}
-  </ul>
+  <SocialsContainer>
+    <div className="columns is-mobile is-multiline">
+      {socials.map(social => (
+        <SocialsListItem className="column" key={social.id}>
+          <a href={social.href}>
+            <i className={social.icon} />
+          </a>
+        </SocialsListItem>
+      ))}
+    </div>
+  </SocialsContainer>
 );
 
 export default Socials;
