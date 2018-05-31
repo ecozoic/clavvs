@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import header from '../../data/header';
 import socials from '../../data/socials';
 
-const StyledNav = styled.nav`
+const Nav = styled.nav`
   background-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.black)};
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -46,6 +46,27 @@ const NavItem = styled.div`
   }
 `;
 
+const NavMenu = styled.div`
+  box-shadow: none;
+
+  @media screen and (max-width: 1087px) {
+    &.is-active {
+      background-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.purple)};
+      display: inline-block;
+      position: absolute;
+      right: 0;
+
+      & .navbar-item > a {
+        color: ${props => props.theme.colors.black} !important;
+
+        &:hover {
+          color: ${props => props.theme.colors.white} !important;
+        }
+      }
+    }
+  }
+`;
+
 class Header extends Component {
   state = {
     scrollTop: 0,
@@ -76,7 +97,7 @@ class Header extends Component {
     const isTransparent = this.state.scrollTop <= header.scrollThresholdPx;
 
     return (
-      <StyledNav
+      <Nav
         transparent={isTransparent}
         className="navbar is-fixed-top"
         aria-label="main navigation"
@@ -101,7 +122,10 @@ class Header extends Component {
             <span aria-hidden="true" />
           </Burger>
         </div>
-        <div className="navbar-menu">
+        <NavMenu
+          className={classnames('navbar-menu', { 'is-active': this.state.burgerOpen })}
+          transparent={isTransparent}
+        >
           <div className="navbar-start" />
           <div className="navbar-end">
             {socials.map(social => (
@@ -112,8 +136,8 @@ class Header extends Component {
               </NavItem>
             ))}
           </div>
-        </div>
-      </StyledNav>
+        </NavMenu>
+      </Nav>
     );
   }
 }
