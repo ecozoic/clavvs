@@ -20,7 +20,7 @@ const LogoHeader = styled.h1`
 `;
 
 const Logo = styled.img`
-  max-height: 4rem !important;
+  max-height: ${props => props.theme.scale.biggest}rem !important;
 `;
 
 const Burger = styled.div`
@@ -64,7 +64,7 @@ class Header extends Component {
     this.setState({
       scrollTop: window.scrollY,
     });
-  }, 100);
+  }, header.scrollThrottleMs);
 
   handleBurgerClick = () => {
     this.setState(prevState => ({
@@ -73,7 +73,7 @@ class Header extends Component {
   };
 
   render() {
-    const isTransparent = this.state.scrollTop === 0;
+    const isTransparent = this.state.scrollTop <= header.scrollThresholdPx;
 
     return (
       <StyledNav
@@ -102,6 +102,7 @@ class Header extends Component {
           </Burger>
         </div>
         <div className="navbar-menu">
+          <div className="navbar-start" />
           <div className="navbar-end">
             {socials.map(social => (
               <NavItem className="navbar-item" key={social.id} transparent={isTransparent}>

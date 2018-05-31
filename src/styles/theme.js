@@ -10,7 +10,13 @@ export default {
     family: '"Open Sans", sans-serif',
     rootSize: '16px',
     lineHeight: 1.5,
-    fontWeight: 400,
+    weights: {
+      light: 300,
+      regular: 400,
+      semibold: 600,
+      bold: 700,
+      xtrabold: 800,
+    },
   },
   scale: {
     huge: 6.854,
@@ -24,6 +30,13 @@ export default {
   },
   transition: {
     duration: '.5s',
-    easing: 'cubic-bezier(.455, .03, .515, .955)',
+    easing: 'ease-in-out',
+  },
+  breakpoints: {
+    mobile: '768px',
+    tablet: '769px',
+    desktop: '1024px',
+    widescreen: '1216px',
+    fullhd: '1408px',
   },
 };

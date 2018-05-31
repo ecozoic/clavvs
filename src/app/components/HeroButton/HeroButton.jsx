@@ -4,14 +4,14 @@ const HeroButton = styled.a`
   background-color: transparent;
   border: 4px solid ${props => props.theme.colors.blackTransparent};
   color: ${props => props.theme.colors.blackTransparent};
+  display: inline-block;
+  font-size: ${props => props.theme.scale.bigger}rem;
+  font-weight: ${props => props.theme.font.weights.bold};
+  padding: ${props => props.theme.scale.normal}rem;
   text-align: center;
   text-transform: uppercase;
-  transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  transition: all ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
   user-select: none;
-
-  &:focus {
-    outline: 0;
-  }
 
   &:hover {
     background-color: ${props => props.theme.colors.black};

@@ -2,9 +2,11 @@ import { sortBy } from 'lodash-es';
 
 import widgets from './widgets';
 import img from '../../images/clavvs_single.png';
+import mobileImg from '../../images/clavvs_single_mobile2.png';
 
 export default {
   backgroundUrl: img,
+  mobileBackgroundUrl: mobileImg,
   buttons: sortBy([
     {
       id: 'music',
