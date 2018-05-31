@@ -14,7 +14,7 @@ const HeroImage = styled.section`
   }
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}) {
-    background-position-x: 66%;
+    background-position-x: 60%;
   }
 `;
 

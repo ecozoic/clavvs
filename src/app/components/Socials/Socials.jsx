@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import socials from '../../data/socials';
 
 const SocialsContainer = styled.div`
-  margin: ${props => props.theme.scale.bigger}rem 0;
+  padding-bottom: ${props => props.theme.scale.biggest}rem;
+  padding-top: ${props => props.theme.scale.huge}rem;
 `;
 
 const SocialsListItem = styled.div`

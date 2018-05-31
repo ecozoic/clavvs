@@ -5,6 +5,7 @@ export default {
     black: '#13181d',
     blackTransparent: 'rgba(19, 24, 29, .8)',
     purple: '#639',
+    purpleTransparent: 'rgba(102, 51, 153, .25)',
   },
   font: {
     family: '"Open Sans", sans-serif',
