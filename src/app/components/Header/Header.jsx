@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { throttle } from 'lodash-es';
+import classnames from 'classnames';
 
 import header from '../../data/header';
 import socials from '../../data/socials';
@@ -11,7 +12,7 @@ const StyledNav = styled.nav`
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.purple)};
-  transition: all .5s cubic-bezier(.455, .03, .515, .955);
+  transition: ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
 `;
 
 const LogoHeader = styled.h1`
@@ -23,23 +24,24 @@ const Logo = styled.img`
 `;
 
 const Burger = styled.div`
+  color: ${props => (props.transparent ? props.theme.colors.blackTransparent : props.theme.colors.white)};
   height: auto;
-`;
-
-const HeaderListItem = styled.li`
-  border-bottom: 3px solid transparent;
-  display: inline-block;
-  text-align: center;
+  transition: all ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
 
   &:hover {
-    border-bottom: 3px solid transparent;
+    color: ${props => (props.transparent ? props.theme.colors.white : props.theme.colors.purple)};
   }
+`;
+
+const NavItem = styled.div`
+  font-size: ${props => props.theme.scale.big}rem;
 
   & > a {
-    color: ${props => props.theme.colors.white};
+    color: ${props => (props.transparent ? props.theme.colors.blackTransparent : props.theme.colors.white)};
+    transition: all ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
 
     &:hover {
-      color: ${props => props.theme.colors.purple};
+      color: ${props => (props.transparent ? props.theme.colors.white : props.theme.colors.purple)};
     }
   }
 `;
@@ -47,6 +49,7 @@ const HeaderListItem = styled.li`
 class Header extends Component {
   state = {
     scrollTop: 0,
+    burgerOpen: false,
   };
 
   componentDidMount() {
@@ -63,10 +66,18 @@ class Header extends Component {
     });
   }, 100);
 
+  handleBurgerClick = () => {
+    this.setState(prevState => ({
+      burgerOpen: !prevState.burgerOpen,
+    }));
+  };
+
   render() {
+    const isTransparent = this.state.scrollTop === 0;
+
     return (
       <StyledNav
-        transparent={this.state.scrollTop === 0}
+        transparent={isTransparent}
         className="navbar is-fixed-top"
         aria-label="main navigation"
       >
@@ -76,7 +87,15 @@ class Header extends Component {
             <Logo alt="logo" src={header.logoUrl} />
             <LogoHeader>CLAVVS</LogoHeader>
           </Link>
-          <Burger role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+          <Burger
+            role="button"
+            className={classnames('navbar-burger', { 'is-active': this.state.burgerOpen })}
+            aria-label="menu"
+            aria-expanded="false"
+            transparent={isTransparent}
+            active={this.state.burgerOpen}
+            onClick={this.handleBurgerClick}
+          >
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
@@ -84,15 +103,13 @@ class Header extends Component {
         </div>
         <div className="navbar-menu">
           <div className="navbar-end">
-            <ul>
-              {socials.map(social => (
-                <HeaderListItem key={social.id}>
-                  <a href={social.href}>
-                    <i className={social.icon} />
-                  </a>
-                </HeaderListItem>
-              ))}
-            </ul>
+            {socials.map(social => (
+              <NavItem className="navbar-item" key={social.id} transparent={isTransparent}>
+                <a href={social.href}>
+                  <i className={social.icon} />
+                </a>
+              </NavItem>
+            ))}
           </div>
         </div>
       </StyledNav>

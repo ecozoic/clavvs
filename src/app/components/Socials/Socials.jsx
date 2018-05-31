@@ -3,20 +3,12 @@ import styled from 'styled-components';
 
 import socials from '../../data/socials';
 
-const SocialsList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style: none;
-  padding-bottom: 80px;
-`;
-
 const SocialsListItem = styled.li`
+  display: inline-block;
+
   & > a {
     color: ${props => props.theme.colors.white};
-    display: block;
-    font-size: 72px;
-    margin: 0 10px;
+    transition: all ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
 
     &:hover {
       color: ${props => props.theme.colors.purple};
@@ -25,7 +17,7 @@ const SocialsListItem = styled.li`
 `;
 
 const Socials = () => (
-  <SocialsList>
+  <ul>
     {socials.map(social => (
       <SocialsListItem key={social.id}>
         <a href={social.href}>
@@ -33,7 +25,7 @@ const Socials = () => (
         </a>
       </SocialsListItem>
     ))}
-  </SocialsList>
+  </ul>
 );
 
 export default Socials;
