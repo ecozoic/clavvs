@@ -1,39 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Form = styled.form`
+  margin: 0 auto;
+  max-width: 800px;
+`;
 
 const Mailchimp = props => (
-  <div id="mc_embed_signup">
-    <form
-      action={props.action}
-      method="post"
-      id="mc-embedded-subscribe-form"
-      name="mc-embedded-subscribe-form"
-      className="validate"
-      target="_blank"
-      noValidate
-    >
-      <div id="mc_embed_signup_scroll">
-        <h2>{props.header}</h2>
-        <div className="indicates-required">
-          <span className="asterisk">*</span> indicates required
-        </div>
-        <div className="mc-field-group">
-          <label htmlFor="mce-EMAIL">Email Address  <span className="asterisk">*</span></label>
-          <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" />
-        </div>
-        <div id="mce-responses" className="clear">
-          <div className="response" id="mce-error-response" style={{ display: 'none' }} />
-          <div className="response" id="mce-success-response" style={{ display: 'none' }} />
-        </div>
-        <div style={{ position: 'absolute', left: '-5000px', ariaHidden: true }}>
-          <input type="text" name="b_6b3bedaf97619356c511dddb9_e1016c7f40" tabIndex="-1" value="" />
-        </div>
-        <div className="clear">
-          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
-        </div>
+  <Form
+    action={props.action}
+    method="post"
+    target="_blank"
+    noValidate
+  >
+    <h2>{props.header}</h2>
+    <div className="field">
+      {/* eslint-disable-next-line jsx-a11y/label-has-for */}
+      <label htmlFor="email" className="label">Email</label>
+      <div className="control">
+        <input
+          id="email"
+          name="EMAIL"
+          type="email"
+          className="input"
+          placeholder="name@example.com"
+        />
+        <input
+          type="hidden"
+          name="b_6b3bedaf97619356c511dddb9_e1016c7f40"
+          tabIndex="-1"
+          value=""
+        />
       </div>
-    </form>
-  </div>
+    </div>
+    <div className="field">
+      <div className="control">
+        <button className="button is-link" type="submit">
+          Submit
+        </button>
+      </div>
+    </div>
+  </Form>
 );
 
 Mailchimp.propTypes = {
