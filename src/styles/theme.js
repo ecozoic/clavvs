@@ -1,11 +1,16 @@
+import color from 'color';
+
+const black = '#13181d';
+const purple = '#639';
+
 export default {
   colors: {
     gray: '#666',
     white: '#fff',
-    black: '#13181d',
-    blackTransparent: 'rgba(19, 24, 29, .8)',
-    purple: '#639',
-    purpleTransparent: 'rgba(102, 51, 153, .25)',
+    black,
+    blackTransparent: color(black).alpha(0.8).rgb().string(),
+    purple,
+    purpleTransparent: color(purple).alpha(0.25).rgb().string(),
   },
   font: {
     family: '"Open Sans", sans-serif',
