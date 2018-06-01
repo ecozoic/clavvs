@@ -11,27 +11,27 @@ const Socials = () => (
         </a>
       </li>
       <li>
-        <a href="https://www.facebook.com/clavvsatl">
+        <a href="https://www.facebook.com/clavvs">
           <i className="fa fa-fw fa-facebook" />
         </a>
       </li>
       <li>
-        <a href="https://twitter.com/clavvsatl">
+        <a href="https://twitter.com/clavvsduo">
           <i className="fa fa-fw fa-twitter" />
         </a>
       </li>
       <li>
-        <a href="https://www.instagram.com/clavvsatl">
+        <a href="https://www.instagram.com/clavvsduo">
           <i className="fa fa-fw fa-instagram" />
         </a>
       </li>
       <li>
-        <a href="https://www.youtube.com/user/clawsatl">
+        <a href="https://www.youtube.com/c/CLAVVSduo">
           <i className="fa fa-fw fa-youtube" />
         </a>
       </li>
       <li>
-        <a href="https://soundcloud.com/clavvsatl">
+        <a href="https://soundcloud.com/clavvs">
           <i className="fa fa-fw fa-soundcloud" />
         </a>
       </li>
