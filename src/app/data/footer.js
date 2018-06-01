@@ -1,7 +1,9 @@
+import shortid from 'shortid';
+
 export default {
   links: [
     {
-      id: 'mgmt',
+      id: shortid.generate(),
       header: 'mgmt',
       text: 'ari@sorrymomproductions.com',
       href: 'mailto:ari@sorrymomproductions.com',
@@ -9,7 +11,7 @@ export default {
       sortIndex: 0,
     },
     {
-      id: 'website',
+      id: shortid.generate(),
       header: 'website',
       text: 'ecozoic',
       href: 'https://github.com/ecozoic',

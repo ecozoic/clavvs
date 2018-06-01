@@ -18,7 +18,7 @@ class Header extends Component {
   render() {
     return (
       <HeaderComponent
-        socials={this.props.store.socials.links.slice()}
+        socials={this.props.store.social.links.slice()}
       />
     );
   }

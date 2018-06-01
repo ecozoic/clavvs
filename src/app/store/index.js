@@ -1,11 +1,13 @@
 import FooterStore from './footer';
 import HeroStore from './hero';
-import SocialsStore from './socials';
+import SectionStore from './section';
+import SocialStore from './social';
 
 class Store {
   footer = new FooterStore();
   hero = new HeroStore();
-  socials = new SocialsStore();
+  social = new SocialStore();
+  section = new SectionStore();
 }
 
 export default Store;

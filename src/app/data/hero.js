@@ -1,26 +1,25 @@
-import { sortBy } from 'lodash-es';
+import shortid from 'shortid';
 
-import widgets from './widgets';
 import img from '../../images/clavvs_single.png';
 import mobileImg from '../../images/clavvs_single_mobile2.png';
 
 export default {
   backgroundUrl: img,
   mobileBackgroundUrl: mobileImg,
-  links: sortBy([
+  links: [
     {
-      id: 'music',
+      id: shortid.generate(),
       text: 'Music',
-      href: `https://open.spotify.com/artist/${widgets.spotify.artist}`,
+      href: 'https://open.spotify.com/artist/2JcWOIfDeHESCg42COyDy1',
       enabled: true,
       sortIndex: 0,
     },
     {
-      id: 'merch',
+      id: shortid.generate(),
       text: 'Merch',
       href: 'https://clavvs.bigcartel.com',
       enabled: true,
       sortIndex: 1,
     },
-  ].filter(l => l.enabled), 'sortIndex'),
+  ],
 };

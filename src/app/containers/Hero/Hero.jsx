@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 
 import HeroComponent from '../../components/Hero';
 
-// TODO: optimize so each social link can render independently
+// TODO: optimize so each hero link can render independently
 // TODO: depend on other properties (icon, etc.)
 
 @inject('store')

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 
-import SocialsComponent from '../../components/Socials';
+import SocialsComponent from '../../components/Widget/Socials';
 
 // TODO: optimize so each social link can render independently
 // TODO: depend on other properties (icon, etc.)
@@ -18,7 +18,7 @@ class Socials extends Component {
   render() {
     return (
       <SocialsComponent
-        links={this.props.store.socials.links.slice()}
+        links={this.props.store.social.links.slice()}
       />
     );
   }

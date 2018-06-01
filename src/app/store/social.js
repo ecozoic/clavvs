@@ -3,7 +3,7 @@ import { sortBy } from 'lodash-es';
 
 import socials from '../data/socials';
 
-class SocialsStore {
+class SocialStore {
   @observable originalLinks = socials;
 
   @computed
@@ -32,4 +32,4 @@ class SocialsStore {
   }
 }
 
-export default SocialsStore;
+export default SocialStore;
