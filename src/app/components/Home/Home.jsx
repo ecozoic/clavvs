@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import Header from '../Header';
+import Header from '../../containers/Header';
 import Main from '../Main';
 import Footer from '../../containers/Footer';
 

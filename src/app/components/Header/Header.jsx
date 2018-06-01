@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { throttle } from 'lodash-es';
 import classnames from 'classnames';
 
 import header from '../../data/header';
-import socials from '../../data/socials';
 
 const Nav = styled.nav`
   background-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.black)};
@@ -68,6 +68,11 @@ const NavMenu = styled.div`
 `;
 
 class Header extends Component {
+  static propTypes = {
+    // eslint-disable-next-line react/forbid-prop-types
+    socials: PropTypes.array.isRequired,
+  };
+
   state = {
     scrollTop: 0,
     burgerOpen: false,
@@ -128,7 +133,7 @@ class Header extends Component {
         >
           <div className="navbar-start" />
           <div className="navbar-end">
-            {socials.map(social => (
+            {this.props.socials.map(social => (
               <NavItem className="navbar-item" key={social.id} transparent={isTransparent}>
                 <a href={social.href}>
                   <i className={social.icon} />

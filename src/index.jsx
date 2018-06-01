@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { configure } from 'mobx';
+// import { configure } from 'mobx';
 
 import App from './app';
 import Store from './app/store';
@@ -13,7 +13,7 @@ import baseStyles from './styles';
 baseStyles();
 
 // init mobx
-configure({ computedRequiresReaction: true, enforceActions: true });
+// configure({ computedRequiresReaction: true, enforceActions: true });
 
 const store = new Store();
 

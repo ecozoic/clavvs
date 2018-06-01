@@ -8,7 +8,7 @@ import SpotifyFollow from '../SpotifyFollow';
 import SpotifyPlayer from '../SpotifyPlayer';
 import Songkick from '../Songkick';
 import Mailchimp from '../Mailchimp';
-import Socials from '../Socials';
+import Socials from '../../containers/Socials';
 
 const Main = () => (
   <main>

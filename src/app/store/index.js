@@ -1,20 +1,9 @@
-import { observable, computed } from 'mobx';
-import { sortBy } from 'lodash-es';
-
-import footer from '../data/footer';
+import FooterStore from './footer';
+import SocialsStore from './socials';
 
 class Store {
-  @observable footerLinks = footer.links;
-
-  @computed
-  get enabledFooterLinks() {
-    return this.footerLinks.filter(fl => fl.enabled);
-  }
-
-  @computed
-  get sortedEnabledFooterLinks() {
-    return sortBy(this.enabledFooterLinks, 'sortIndex');
-  }
+  footer = new FooterStore();
+  socials = new SocialsStore();
 }
 
 export default Store;
