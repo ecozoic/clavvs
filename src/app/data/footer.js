@@ -1,7 +1,5 @@
-import { sortBy } from 'lodash-es';
-
 export default {
-  links: sortBy([
+  links: [
     {
       id: 'mgmt',
       header: 'mgmt',
@@ -18,5 +16,5 @@ export default {
       enabled: true,
       sortIndex: 1,
     },
-  ].filter(l => l.enabled), 'sortIndex'),
+  ],
 };

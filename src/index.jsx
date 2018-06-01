@@ -13,12 +13,12 @@ import baseStyles from './styles';
 baseStyles();
 
 // init mobx
-configure({
-  computedRequiresReaction: true,
-  enforceActions: 'strict',
-});
+configure({ computedRequiresReaction: true, enforceActions: true });
 
 const store = new Store();
+
+// TODO: debug code plz remove
+window.store = store;
 
 // init firebase
 // TODO

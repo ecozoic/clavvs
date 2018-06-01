@@ -1,7 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-import footer from '../../data/footer';
 
 const StyledFooter = styled.footer`
   background-color: ${props => props.theme.colors.black};
@@ -28,11 +27,11 @@ const FooterListLink = styled.a`
   }
 `;
 
-const Footer = () => (
+const Footer = ({ links }) => (
   <StyledFooter className="footer">
     <div className="container">
       <div className="columns">
-        {footer.links.map(link => (
+        {links.map(link => (
           <div className="column" key={link.id}>
             <FooterListHeader>{link.header}</FooterListHeader>
             <FooterListContent>
@@ -46,5 +45,10 @@ const Footer = () => (
     </div>
   </StyledFooter>
 );
+
+Footer.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  links: PropTypes.array.isRequired,
+};
 
 export default Footer;

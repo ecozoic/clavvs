@@ -1,22 +1,19 @@
-import { observable, action } from 'mobx';
+import { observable, computed } from 'mobx';
+import { sortBy } from 'lodash-es';
+
+import footer from '../data/footer';
 
 class Store {
-  @observable timer = 0;
+  @observable footerLinks = footer.links;
 
-  constructor() {
-    this.startTimer();
+  @computed
+  get enabledFooterLinks() {
+    return this.footerLinks.filter(fl => fl.enabled);
   }
 
-  @action('start timer')
-  startTimer() {
-    setInterval(action('timer increment', () => {
-      this.timer += 1;
-    }), 1000);
-  }
-
-  @action('reset timer')
-  resetTimer() {
-    this.timer = 0;
+  @computed
+  get sortedEnabledFooterLinks() {
+    return sortBy(this.enabledFooterLinks, 'sortIndex');
   }
 }
 
