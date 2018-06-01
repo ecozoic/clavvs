@@ -2,7 +2,7 @@ import React from 'react';
 
 import widgets from '../../data/widgets';
 
-import Hero from '../Hero';
+import Hero from '../../containers/Hero';
 import Section from '../Section';
 import SpotifyFollow from '../SpotifyFollow';
 import SpotifyPlayer from '../SpotifyPlayer';

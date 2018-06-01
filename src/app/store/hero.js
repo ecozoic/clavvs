@@ -1,10 +1,10 @@
 import { observable, computed, action } from 'mobx';
 import { sortBy } from 'lodash-es';
 
-import footer from '../data/footer';
+import hero from '../data/hero';
 
-class FooterStore {
-  @observable originalLinks = footer.links;
+class HeroStore {
+  @observable originalLinks = hero.links;
 
   @computed
   get enabledLinks() {
@@ -32,4 +32,4 @@ class FooterStore {
   }
 }
 
-export default FooterStore;
+export default HeroStore;

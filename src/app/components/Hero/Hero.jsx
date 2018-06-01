@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import HeroButton from '../HeroButton';
@@ -32,20 +33,25 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const Hero = () => (
+const Hero = ({ links }) => (
   <HeroImage className="hero is-fullheight">
     <div className="hero-head" />
     <div className="hero-body" />
     <div className="hero-foot">
       <ButtonContainer className="container">
-        {hero.buttons.map(button => (
-          <HeroButton key={button.id} href={button.href}>
-            {button.text}
+        {links.map(link => (
+          <HeroButton key={link.id} href={link.href}>
+            {link.text}
           </HeroButton>
         ))}
       </ButtonContainer>
     </div>
   </HeroImage>
 );
+
+Hero.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  links: PropTypes.array.isRequired,
+};
 
 export default Hero;

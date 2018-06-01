@@ -7,7 +7,7 @@ import mobileImg from '../../images/clavvs_single_mobile2.png';
 export default {
   backgroundUrl: img,
   mobileBackgroundUrl: mobileImg,
-  buttons: sortBy([
+  links: sortBy([
     {
       id: 'music',
       text: 'Music',
