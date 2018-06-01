@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Mailchimp from './Mailchimp';
 import Socials from '../../containers/Socials';
 import Songkick from './Songkick';
+import Soundcloud from './Soundcloud';
 import SpotifyFollow from './SpotifyFollow';
 import SpotifyPlayer from './SpotifyPlayer';
 
@@ -19,6 +20,9 @@ const Widget = ({ name, props }) => {
       break;
     case 'songkick':
       widget = Songkick;
+      break;
+    case 'soundcloud':
+      widget = Soundcloud;
       break;
     case 'spotify-follow':
       widget = SpotifyFollow;

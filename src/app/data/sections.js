@@ -31,6 +31,16 @@ export default [
           artist: spotifyArtistId,
         },
       },
+      {
+        id: shortid.generate(),
+        type: 'widget',
+        name: 'soundcloud',
+        enabled: false,
+        sortIndex: 2,
+        props: {
+          user: 69917228,
+        },
+      },
     ],
   },
   {

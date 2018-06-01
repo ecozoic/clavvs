@@ -7,7 +7,7 @@ import Paragraph from '../../components/Paragraph';
 import Widget from '../../components/Widget';
 
 // TODO: optimize so each section can render independently
-// TODO: handle sorting/filtering contents
+// TODO: handle sorting/filtering contents with computeds
 // TODO: depend on other properties (icon, etc.)
 
 @inject('store')
@@ -23,7 +23,7 @@ class Sections extends Component {
       <Fragment>
         {this.props.store.section.sections.map(section => (
           <Section key={section.id} header={section.header}>
-            {section.contents.map(content => (
+            {section.contents.filter(c => c.enabled).map(content => (
               <Fragment key={content.id}>
                 {content.type === 'paragraph' &&
                   <Paragraph
