@@ -8,6 +8,8 @@ import { inject, observer } from 'mobx-react';
 
 import logo from '../../../images/logo.png';
 
+import SocialLink from './SocialLink';
+
 const SCROLL_THROTTLE_MS = 100;
 const SCROLL_THRESHOLD_PX = 80;
 
@@ -34,19 +36,6 @@ const Burger = styled.div`
 
   &:hover {
     color: ${props => (props.transparent ? props.theme.colors.white : props.theme.colors.purple)};
-  }
-`;
-
-const NavItem = styled.div`
-  font-size: ${props => props.theme.scale.big}rem;
-
-  & > a {
-    color: ${props => (props.transparent ? props.theme.colors.blackTransparent : props.theme.colors.white)};
-    transition: all ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
-
-    &:hover {
-      color: ${props => (props.transparent ? props.theme.colors.white : props.theme.colors.purple)};
-    }
   }
 `;
 
@@ -140,11 +129,7 @@ class Header extends Component {
           <div className="navbar-start" />
           <div className="navbar-end">
             {this.props.store.social.links.map(link => (
-              <NavItem className="navbar-item" key={link.id} transparent={isTransparent}>
-                <a href={link.href}>
-                  <i className={link.icon} />
-                </a>
-              </NavItem>
+              <SocialLink key={link.id} link={link} transparent={isTransparent} />
             ))}
           </div>
         </NavMenu>

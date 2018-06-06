@@ -1,6 +1,9 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { observer } from 'mobx-react';
 
-const HeroButton = styled.a`
+const ButtonLink = styled.a`
   background-color: transparent;
   border: 4px solid ${props => props.theme.colors.blackTransparent};
   color: ${props => props.theme.colors.blackTransparent};
@@ -25,5 +28,21 @@ const HeroButton = styled.a`
     color: ${props => props.theme.colors.purple};
   }
 `;
+
+@observer
+class HeroButton extends Component {
+  static propTypes = {
+    // eslint-disable-next-line react/forbid-prop-types
+    link: PropTypes.object.isRequired,
+  };
+
+  render() {
+    return (
+      <ButtonLink href={this.props.link.href}>
+        {this.props.link.text}
+      </ButtonLink>
+    );
+  }
+}
 
 export default HeroButton;

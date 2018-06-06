@@ -23,6 +23,7 @@ const store = new Store();
 // init firebase
 // TODO: sections/widgets
 // TODO: couple w/ react component refactor to optimize re-renders
+// TODO: resolve sorting issue
 firebase.initializeApp({
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -59,7 +60,7 @@ db.collection('socials')
         store.social.addLink(mapDocToObject(change.doc));
       } else if (change.type === 'modified') {
         store.social.updateLink(change.doc.id, mapDocToObject(change.doc));
-      } else if (change.typed === 'removed') {
+      } else if (change.type === 'removed') {
         store.social.removeLink(change.doc.id);
       }
     });
@@ -74,7 +75,7 @@ db.collection('hero-links')
         store.hero.addLink(mapDocToObject(change.doc));
       } else if (change.type === 'modified') {
         store.hero.updateLink(change.doc.id, mapDocToObject(change.doc));
-      } else if (change.typed === 'removed') {
+      } else if (change.type === 'removed') {
         store.hero.removeLink(change.doc.id);
       }
     });

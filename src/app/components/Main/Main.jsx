@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Hero from '../../containers/Hero';
+import Hero from '../Hero';
 import Sections from '../../containers/Sections';
 
 const Main = () => (

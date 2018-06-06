@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { inject, observer } from 'mobx-react';
 
 import img from '../../../images/clavvs_single.png';
 import mobileImg from '../../../images/clavvs_single_mobile2.png';
 
-import HeroButton from '../HeroButton';
+import HeroButton from './HeroButton';
 
 const HeroImage = styled.section`
   background: url('${img}') no-repeat center / cover;
@@ -35,25 +36,29 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const Hero = ({ links }) => (
-  <HeroImage className="hero is-fullheight">
-    <div className="hero-head" />
-    <div className="hero-body" />
-    <div className="hero-foot">
-      <ButtonContainer className="container">
-        {links.map(link => (
-          <HeroButton key={link.id} href={link.href}>
-            {link.text}
-          </HeroButton>
-        ))}
-      </ButtonContainer>
-    </div>
-  </HeroImage>
-);
-
-Hero.propTypes = {
+@inject('store')
+@observer
+class Hero extends Component {
+  static propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  links: PropTypes.array.isRequired,
-};
+    store: PropTypes.object.isRequired,
+  };
+
+  render() {
+    return (
+      <HeroImage className="hero is-fullheight">
+        <div className="hero-head" />
+        <div className="hero-body" />
+        <div className="hero-foot">
+          <ButtonContainer className="container">
+            {this.props.store.hero.links.map(link => (
+              <HeroButton key={link.id} link={link} />
+            ))}
+          </ButtonContainer>
+        </div>
+      </HeroImage>
+    );
+  }
+}
 
 export default Hero;
