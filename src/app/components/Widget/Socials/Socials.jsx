@@ -1,43 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { inject, observer } from 'mobx-react';
+
+import SocialLink from './SocialLink';
 
 const SocialsContainer = styled.div`
   padding-bottom: ${props => props.theme.scale.biggest}rem;
   padding-top: ${props => props.theme.scale.huge}rem;
 `;
 
-const SocialsListItem = styled.div`
-  font-size: ${props => props.theme.scale.biggest}rem;
-  text-align: center;
+@inject('store')
+@observer
+class Socials extends Component {
+  static propTypes = {
+    // eslint-disable-next-line react/forbid-prop-types
+    store: PropTypes.object.isRequired,
+  };
 
-  & > a {
-    color: ${props => props.theme.colors.white};
-    transition: color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
-
-    &:hover {
-      color: ${props => props.theme.colors.purple};
-    }
+  render() {
+    return (
+      <SocialsContainer>
+        <div className="columns is-mobile is-multiline">
+          {this.props.store.social.links.map(link => (
+            <SocialLink key={link.id} link={link} />
+          ))}
+        </div>
+      </SocialsContainer>
+    );
   }
-`;
-
-const Socials = ({ links }) => (
-  <SocialsContainer>
-    <div className="columns is-mobile is-multiline">
-      {links.map(link => (
-        <SocialsListItem className="column" key={link.id}>
-          <a href={link.href}>
-            <i className={link.icon} />
-          </a>
-        </SocialsListItem>
-      ))}
-    </div>
-  </SocialsContainer>
-);
-
-Socials.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  links: PropTypes.array.isRequired,
-};
+}
 
 export default Socials;
