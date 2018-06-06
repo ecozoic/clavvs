@@ -7,7 +7,7 @@ import 'firebase/firestore';
 import App from './app';
 import Store from './app/store';
 import baseStyles from './styles';
-import { mapQuerySnapshotToArray, mapDocToObject } from './app/util';
+import { mapDocToObject } from './app/util';
 
 // load polyfills
 // TODO
@@ -81,12 +81,52 @@ db.collection('hero-links')
     });
   });
 
-// TODO: handle contents subcollection
+const contentSubcollectionSubscriptions = {};
+
 db.collection('sections')
   .where('enabled', '==', true)
   .orderBy('sortIndex')
   .onSnapshot((querySnapshot) => {
-    store.section.replaceSections(mapQuerySnapshotToArray(querySnapshot));
+    querySnapshot.docChanges().forEach((change) => {
+      if (change.type === 'added') {
+        const sectionId = change.doc.id;
+
+        // subscribe to subcollection
+        if (!contentSubcollectionSubscriptions[sectionId]) {
+          contentSubcollectionSubscriptions[sectionId] =
+            change.doc.ref.collection('contents')
+              .where('enabled', '==', true)
+              .orderBy('sortIndex')
+              .onSnapshot((contentQuerySnapshot) => {
+                contentQuerySnapshot.docChanges().forEach((contentChange) => {
+                  if (contentChange.type === 'added') {
+                    store.section.addContent(sectionId, mapDocToObject(contentChange.doc));
+                  } else if (contentChange.type === 'modified') {
+                    store.section.updateContent(
+                      sectionId,
+                      contentChange.doc.id,
+                      mapDocToObject(contentChange.doc),
+                    );
+                  } else if (contentChange.type === 'removed') {
+                    store.section.removeContent(sectionId, contentChange.doc.id);
+                  }
+                });
+              });
+        }
+
+        store.section.addSection(mapDocToObject(change.doc));
+      } else if (change.type === 'modified') {
+        store.section.updateSection(change.doc.id, mapDocToObject(change.doc));
+      } else if (change.type === 'removed') {
+        // unsubscribe from subcollection
+        if (contentSubcollectionSubscriptions[change.doc.id]) {
+          contentSubcollectionSubscriptions[change.doc.id]();
+          delete contentSubcollectionSubscriptions[change.doc.id];
+        }
+
+        store.section.removeSection(change.doc.id);
+      }
+    });
   });
 
 render(

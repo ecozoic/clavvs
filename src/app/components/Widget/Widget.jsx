@@ -2,7 +2,7 @@ import { createElement } from 'react';
 import PropTypes from 'prop-types';
 
 import Mailchimp from './Mailchimp';
-import Socials from '../../containers/Socials';
+import Socials from './Socials';
 import Songkick from './Songkick';
 import Soundcloud from './Soundcloud';
 import SpotifyFollow from './SpotifyFollow';
