@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 
-import Header from '../../containers/Header';
+import Header from '../Header';
 import Main from '../Main';
-import Footer from '../../containers/Footer';
+import Footer from '../Footer';
 
 const Home = () => (
   <Fragment>

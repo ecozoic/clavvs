@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { observer, inject } from 'mobx-react';
+
+import FooterItem from './FooterItem';
 
 const StyledFooter = styled.footer`
   background-color: ${props => props.theme.colors.black};
@@ -9,46 +12,27 @@ const StyledFooter = styled.footer`
   padding-bottom: 3rem;
 `;
 
-const FooterListHeader = styled.h2`
-  color: ${props => props.theme.colors.gray};
-  margin-bottom: ${props => props.theme.scale.small}rem;
-`;
+@inject('store')
+@observer
+class Footer extends Component {
+  static propTypes = {
+    // eslint-disable-next-line react/forbid-prop-types
+    store: PropTypes.object.isRequired,
+  };
 
-const FooterListContent = styled.p`
-  color: ${props => props.theme.colors.white};
-`;
-
-const FooterListLink = styled.a`
-  color: ${props => props.theme.colors.white};
-  transition: color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
-
-  &:hover {
-    color: ${props => props.theme.colors.purple};
-  }
-`;
-
-const Footer = ({ links }) => (
-  <StyledFooter className="footer">
-    <div className="container">
-      <div className="columns">
-        {links.map(link => (
-          <div className="column" key={link.id}>
-            <FooterListHeader>{link.header}</FooterListHeader>
-            <FooterListContent>
-              <FooterListLink href={link.href}>
-                {link.text}
-              </FooterListLink>
-            </FooterListContent>
+  render() {
+    return (
+      <StyledFooter className="footer">
+        <div className="container">
+          <div className="columns">
+            {this.props.store.footer.links.map(link => (
+              <FooterItem key={link.id} link={link} />
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
-  </StyledFooter>
-);
-
-Footer.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  links: PropTypes.array.isRequired,
-};
+        </div>
+      </StyledFooter>
+    );
+  }
+}
 
 export default Footer;

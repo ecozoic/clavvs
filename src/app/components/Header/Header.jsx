@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { throttle } from 'lodash-es';
 import classnames from 'classnames';
+import { inject, observer } from 'mobx-react';
 
 import logo from '../../../images/logo.png';
 
@@ -70,10 +71,12 @@ const NavMenu = styled.div`
   }
 `;
 
+@inject('store')
+@observer
 class Header extends Component {
   static propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
-    socials: PropTypes.array.isRequired,
+    store: PropTypes.object.isRequired,
   };
 
   state = {
@@ -136,10 +139,10 @@ class Header extends Component {
         >
           <div className="navbar-start" />
           <div className="navbar-end">
-            {this.props.socials.map(social => (
-              <NavItem className="navbar-item" key={social.id} transparent={isTransparent}>
-                <a href={social.href}>
-                  <i className={social.icon} />
+            {this.props.store.social.links.map(link => (
+              <NavItem className="navbar-item" key={link.id} transparent={isTransparent}>
+                <a href={link.href}>
+                  <i className={link.icon} />
                 </a>
               </NavItem>
             ))}
