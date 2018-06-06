@@ -2,15 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import img from '../../../images/clavvs_single.png';
+import mobileImg from '../../../images/clavvs_single_mobile2.png';
+
 import HeroButton from '../HeroButton';
-import hero from '../../data/hero';
 
 const HeroImage = styled.section`
-  background: url('${hero.backgroundUrl}') no-repeat center / cover;
+  background: url('${img}') no-repeat center / cover;
   border-bottom: 1px solid ${props => props.theme.colors.purple};
 
   @media (max-width: ${props => props.theme.breakpoints.desktop}) {
-    background: url('${hero.mobileBackgroundUrl}') no-repeat center/cover;
+    background: url('${mobileImg}') no-repeat center/cover;
     background-position-x: 75%;
   }
 

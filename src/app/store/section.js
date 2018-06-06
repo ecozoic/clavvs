@@ -1,34 +1,20 @@
-import { observable, computed, action } from 'mobx';
-import { sortBy } from 'lodash-es';
-
-import sections from '../data/sections';
+import { observable, action } from 'mobx';
 
 class SectionStore {
-  @observable originalSections = sections;
+  @observable sections = [];
 
-  @computed
-  get enabledSections() {
-    return this.originalSections.filter(s => s.enabled);
-  }
+  @action('replace sections')
+  replaceSections(newSections) {
+    this.sections.replace(newSections.map((newSection) => {
+      if (newSection.contents) {
+        return newSection;
+      }
 
-  @computed
-  get sections() {
-    return sortBy(this.enabledSections, 'sortIndex');
-  }
-
-  @action
-  toggleSectionEnabled(index) {
-    this.originalSections[index].enabled = !this.originalSections[index].enabled;
-  }
-
-  @action
-  setSectionSortIndex(index, sortIndex) {
-    this.originalSections[index].sortIndex = sortIndex;
-  }
-
-  @action
-  addSection(section) {
-    this.originalSections.push(section);
+      return {
+        ...newSection,
+        contents: [],
+      };
+    }));
   }
 }
 

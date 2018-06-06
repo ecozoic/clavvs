@@ -1,32 +1,28 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { configure } from 'mobx';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-// import { configure } from 'mobx';
 
 import App from './app';
 import Store from './app/store';
 import baseStyles from './styles';
+import { mapQuerySnapshotToArray, mapDocToObject } from './app/util';
 
-// load polyfills (if necessary)
+// load polyfills
 // TODO
 
 // load global css
 baseStyles();
 
 // init mobx
-// configure({ computedRequiresReaction: true, enforceActions: true });
+configure({ computedRequiresReaction: true, enforceActions: true });
 
 const store = new Store();
 
-// TODO: debug code plz remove
-window.store = store;
-
 // init firebase
-// TODO: do the timestamps stuff
-// TODO: queries (sort and filter by enabled)
-// TOOD: realtime
-// TODO: sync w/ mobx store
+// TODO: sections/widgets
+// TODO: couple w/ react component refactor to optimize re-renders
 firebase.initializeApp({
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -37,18 +33,60 @@ firebase.initializeApp({
 });
 
 const db = firebase.firestore();
+db.settings({ timestampsInSnapshots: true });
 
-db.collection('footer-links').onSnapshot((querySnapshot) => {
-  store.footer.links.replace(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-});
+db.collection('footer-links')
+  .where('enabled', '==', true)
+  .orderBy('sortIndex')
+  .onSnapshot((querySnapshot) => {
+    querySnapshot.docChanges().forEach((change) => {
+      if (change.type === 'added') {
+        store.footer.addLink(mapDocToObject(change.doc));
+      } else if (change.type === 'modified') {
+        store.footer.updateLink(change.doc.id, mapDocToObject(change.doc));
+      } else if (change.type === 'removed') {
+        store.footer.removeLink(change.doc.id);
+      }
+    });
+  });
 
-db.collection('socials').onSnapshot((querySnapshot) => {
-  store.social.links.replace(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-});
+db.collection('socials')
+  .where('enabled', '==', true)
+  .orderBy('sortIndex')
+  .onSnapshot((querySnapshot) => {
+    querySnapshot.docChanges().forEach((change) => {
+      if (change.type === 'added') {
+        store.social.addLink(mapDocToObject(change.doc));
+      } else if (change.type === 'modified') {
+        store.social.updateLink(change.doc.id, mapDocToObject(change.doc));
+      } else if (change.typed === 'removed') {
+        store.social.removeLink(change.doc.id);
+      }
+    });
+  });
 
-db.collection('hero-links').onSnapshot((querySnapshot) => {
-  store.hero.links.replace(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-});
+db.collection('hero-links')
+  .where('enabled', '==', true)
+  .orderBy('sortIndex')
+  .onSnapshot((querySnapshot) => {
+    querySnapshot.docChanges().forEach((change) => {
+      if (change.type === 'added') {
+        store.hero.addLink(mapDocToObject(change.doc));
+      } else if (change.type === 'modified') {
+        store.hero.updateLink(change.doc.id, mapDocToObject(change.doc));
+      } else if (change.typed === 'removed') {
+        store.hero.removeLink(change.doc.id);
+      }
+    });
+  });
+
+// TODO: handle contents subcollection
+db.collection('sections')
+  .where('enabled', '==', true)
+  .orderBy('sortIndex')
+  .onSnapshot((querySnapshot) => {
+    store.section.replaceSections(mapQuerySnapshotToArray(querySnapshot));
+  });
 
 render(
   <App store={store} />,

@@ -5,7 +5,10 @@ import styled from 'styled-components';
 import { throttle } from 'lodash-es';
 import classnames from 'classnames';
 
-import header from '../../data/header';
+import logo from '../../../images/logo.png';
+
+const SCROLL_THROTTLE_MS = 100;
+const SCROLL_THRESHOLD_PX = 80;
 
 const Nav = styled.nav`
   background-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.black)};
@@ -90,7 +93,7 @@ class Header extends Component {
     this.setState({
       scrollTop: window.scrollY,
     });
-  }, header.scrollThrottleMs);
+  }, SCROLL_THROTTLE_MS);
 
   handleBurgerClick = () => {
     this.setState(prevState => ({
@@ -99,7 +102,7 @@ class Header extends Component {
   };
 
   render() {
-    const isTransparent = this.state.scrollTop <= header.scrollThresholdPx;
+    const isTransparent = this.state.scrollTop <= SCROLL_THRESHOLD_PX;
 
     return (
       <Nav
@@ -110,7 +113,7 @@ class Header extends Component {
         <div className="navbar-brand">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <Link className="navbar-item" to="/">
-            <Logo alt="logo" src={header.logoUrl} />
+            <Logo alt="logo" src={logo} />
             <LogoHeader>CLAVVS</LogoHeader>
           </Link>
           <Burger
