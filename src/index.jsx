@@ -37,25 +37,17 @@ firebase.initializeApp({
 });
 
 const db = firebase.firestore();
-db.collection('socials').get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-  });
+
+db.collection('footer-links').onSnapshot((querySnapshot) => {
+  store.footer.links.replace(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
 });
-db.collection('hero-links').get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-  });
+
+db.collection('socials').onSnapshot((querySnapshot) => {
+  store.social.links.replace(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
 });
-db.collection('footer-links').get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-  });
-});
-db.collection('sections').get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-  });
+
+db.collection('hero-links').onSnapshot((querySnapshot) => {
+  store.hero.links.replace(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
 });
 
 render(

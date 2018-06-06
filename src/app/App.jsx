@@ -9,6 +9,8 @@ import DevTools from 'mobx-react-devtools';
 import theme from '../styles/theme';
 import Home from './components/Home';
 
+// TODO: only serve devtools in dev
+
 const App = ({ store }) => (
   <Fragment>
     <Provider store={store}>

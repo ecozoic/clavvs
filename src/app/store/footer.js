@@ -1,35 +1,7 @@
-import { observable, computed, action } from 'mobx';
-import { sortBy } from 'lodash-es';
-
-import footer from '../data/footer';
+import { observable } from 'mobx';
 
 class FooterStore {
-  @observable originalLinks = footer.links;
-
-  @computed
-  get enabledLinks() {
-    return this.originalLinks.filter(l => l.enabled);
-  }
-
-  @computed
-  get links() {
-    return sortBy(this.enabledLinks, 'sortIndex');
-  }
-
-  @action
-  toggleLinkEnabled(index) {
-    this.originalLinks[index].enabled = !this.originalLinks[index].enabled;
-  }
-
-  @action
-  setLinkSortIndex(index, sortIndex) {
-    this.originalLinks[index].sortIndex = sortIndex;
-  }
-
-  @action
-  addLink(link) {
-    this.originalLinks.push(link);
-  }
+  @observable links = [];
 }
 
 export default FooterStore;
