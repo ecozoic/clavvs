@@ -104,7 +104,7 @@ class Header extends Component {
       >
         <div className="navbar-brand">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <Link className="navbar-item" to="/">
+          <Link className="navbar-item" to="/admin">
             <Logo alt="logo" src={logo} />
             <LogoHeader>CLAVVS</LogoHeader>
           </Link>
