@@ -6,10 +6,6 @@ export default () => injectGlobal`
   html {
     background-color: ${theme.colors.black};
     font-size: ${theme.font.rootSize};
-
-    @media (max-width: ${theme.breakpoints.mobile}) {
-      font-size: 14px;
-    }
   }
 
   body {

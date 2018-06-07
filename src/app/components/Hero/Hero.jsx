@@ -30,8 +30,8 @@ const ButtonContainer = styled.div`
     margin: ${props => props.theme.scale.bigger}rem;
 
     @media (max-width: ${props => props.theme.breakpoints.mobile}) {
-      margin: ${props => props.theme.scale.small}rem;
-      padding: ${props => props.theme.scale.small}rem;
+      margin: ${props => props.theme.scale.smallest}rem;
+      padding: ${props => props.theme.scale.smallest}rem;
     }
   }
 `;

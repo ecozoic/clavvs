@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const SpotifyFollow = props => (
   <iframe
     title="Spotify Follow"
-    src={`https://open.spotify.com/follow/1/?uri=spotify:artist:${props.artist}&size=${props.size}&theme=${props.theme}`}
+    src={`https://open.spotify.com/follow/1?uri=spotify:artist:${props.artist}&size=${props.size}&theme=${props.theme}`}
     width="300"
     height="56"
     scrolling="no"
