@@ -15,7 +15,7 @@ class Sections extends Component {
   render() {
     return (
       <Fragment>
-        {this.props.store.section.sections.map(section => (
+        {this.props.store.section.sortedSections.map(section => (
           <Section key={section.id} section={section} />
         ))}
       </Fragment>

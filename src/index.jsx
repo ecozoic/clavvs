@@ -38,7 +38,6 @@ db.settings({ timestampsInSnapshots: true });
 
 db.collection('footer-links')
   .where('enabled', '==', true)
-  .orderBy('sortIndex')
   .onSnapshot((querySnapshot) => {
     querySnapshot.docChanges().forEach((change) => {
       if (change.type === 'added') {
@@ -53,7 +52,6 @@ db.collection('footer-links')
 
 db.collection('socials')
   .where('enabled', '==', true)
-  .orderBy('sortIndex')
   .onSnapshot((querySnapshot) => {
     querySnapshot.docChanges().forEach((change) => {
       if (change.type === 'added') {
@@ -68,7 +66,6 @@ db.collection('socials')
 
 db.collection('hero-links')
   .where('enabled', '==', true)
-  .orderBy('sortIndex')
   .onSnapshot((querySnapshot) => {
     querySnapshot.docChanges().forEach((change) => {
       if (change.type === 'added') {
@@ -85,7 +82,6 @@ const contentSubcollectionSubscriptions = {};
 
 db.collection('sections')
   .where('enabled', '==', true)
-  .orderBy('sortIndex')
   .onSnapshot((querySnapshot) => {
     querySnapshot.docChanges().forEach((change) => {
       if (change.type === 'added') {
@@ -96,7 +92,6 @@ db.collection('sections')
           contentSubcollectionSubscriptions[sectionId] =
             change.doc.ref.collection('contents')
               .where('enabled', '==', true)
-              .orderBy('sortIndex')
               .onSnapshot((contentQuerySnapshot) => {
                 contentQuerySnapshot.docChanges().forEach((contentChange) => {
                   if (contentChange.type === 'added') {

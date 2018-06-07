@@ -1,7 +1,17 @@
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
+import { sortBy } from 'lodash-es';
 
 class SectionStore {
   @observable sections = [];
+
+  @computed get sortedSections() {
+    const sections = sortBy(this.sections, 'sortIndex');
+
+    return sections.map(section => ({
+      ...section,
+      contents: sortBy(section.contents, 'sortIndex'),
+    }));
+  }
 
   @action('clear sections')
   clearSections() {

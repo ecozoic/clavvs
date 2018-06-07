@@ -128,7 +128,7 @@ class Header extends Component {
         >
           <div className="navbar-start" />
           <div className="navbar-end">
-            {this.props.store.social.links.map(link => (
+            {this.props.store.social.sortedLinks.map(link => (
               <SocialLink key={link.id} link={link} transparent={isTransparent} />
             ))}
           </div>

@@ -25,7 +25,7 @@ class Footer extends Component {
       <StyledFooter className="footer">
         <div className="container">
           <div className="columns">
-            {this.props.store.footer.links.map(link => (
+            {this.props.store.footer.sortedLinks.map(link => (
               <FooterItem key={link.id} link={link} />
             ))}
           </div>

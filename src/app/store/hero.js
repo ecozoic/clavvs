@@ -1,7 +1,12 @@
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
+import { sortBy } from 'lodash-es';
 
 class HeroStore {
   @observable links = [];
+
+  @computed get sortedLinks() {
+    return sortBy(this.links, 'sortIndex');
+  }
 
   @action('clear hero links')
   clearLinks() {

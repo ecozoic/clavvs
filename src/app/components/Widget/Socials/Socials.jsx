@@ -22,7 +22,7 @@ class Socials extends Component {
     return (
       <SocialsContainer>
         <div className="columns is-mobile is-multiline">
-          {this.props.store.social.links.map(link => (
+          {this.props.store.social.sortedLinks.map(link => (
             <SocialLink key={link.id} link={link} />
           ))}
         </div>

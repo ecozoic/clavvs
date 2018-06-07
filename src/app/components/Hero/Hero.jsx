@@ -51,7 +51,7 @@ class Hero extends Component {
         <div className="hero-body" />
         <div className="hero-foot">
           <ButtonContainer className="container">
-            {this.props.store.hero.links.map(link => (
+            {this.props.store.hero.sortedLinks.map(link => (
               <HeroButton key={link.id} link={link} />
             ))}
           </ButtonContainer>
