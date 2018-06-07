@@ -1,29 +1,32 @@
-import React, { Fragment } from 'react';
+import React, { createElement, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { hot } from 'react-hot-loader';
 import { Provider } from 'mobx-react';
-import DevTools from 'mobx-react-devtools';
 
 import theme from '../styles/theme';
-import Home from './components/Home';
+import routes from './routes';
 
-// TODO: only serve devtools in dev
+const WrappedDevTools = () => {
+  if (process.env.NODE_ENV === 'development') {
+    // eslint-disable-next-line global-require
+    return createElement(require('mobx-react-devtools').default);
+  }
+
+  return null;
+};
 
 const App = ({ store }) => (
   <Fragment>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route render={() => <Redirect to="/" />} />
-          </Switch>
+          {routes}
         </BrowserRouter>
       </ThemeProvider>
     </Provider>
-    {process.env.NODE_ENV === 'development' && <DevTools />}
+    <WrappedDevTools />
   </Fragment>
 );
 
