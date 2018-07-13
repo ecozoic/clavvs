@@ -40,7 +40,7 @@ const ButtonContainer = styled.div`
 @observer
 class Hero extends Component {
   static propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
+    // eslint-disable-next-line react/forbid-prop-types
     store: PropTypes.object.isRequired,
   };
 

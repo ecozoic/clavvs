@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import firebase from 'firebase/app';
 
-import logo from '../../../../images/logo.png';
+import logo from '../../../images/logo.png';
 
 const Logo = styled.img`
   display: block;
@@ -26,11 +26,15 @@ const Container = styled.div`
   padding: ${props => props.theme.scale.huge}rem;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}) {
-    padding: ${props => props.theme.scale.bigger}rem ${props => props.theme.scale.smaller}rem;
+    padding: ${props => props.theme.scale.bigger}rem
+      ${props => props.theme.scale.smaller}rem;
   }
 
-  @media (min-width: ${props => props.theme.breakpoints.tablet}) and (max-width: ${props => props.theme.breakpoints.desktop}) {
-    padding: ${props => props.theme.scale.biggest}rem ${props => props.theme.scale.biggest}rem;
+  @media (min-width: ${props =>
+      props.theme.breakpoints.tablet}) and (max-width: ${props =>
+      props.theme.breakpoints.desktop}) {
+    padding: ${props => props.theme.scale.biggest}rem
+      ${props => props.theme.scale.biggest}rem;
   }
 `;
 
@@ -44,22 +48,23 @@ class Login extends Component {
     password: '',
   };
 
-  handleEmailInput = (event) => {
+  handleEmailInput = event => {
     this.setState({
       email: event.target.value,
     });
-  }
+  };
 
-  handlePasswordInput = (event) => {
+  handlePasswordInput = event => {
     this.setState({
       password: event.target.value,
     });
-  }
+  };
 
   handleSubmit = () => {
-    firebase.auth()
+    firebase
+      .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .catch((error) => {
+      .catch(error => {
         switch (error.code) {
           case 'auth/invalid-email':
           case 'auth/user-disabled':
@@ -69,7 +74,7 @@ class Login extends Component {
             console.error(error.message);
         }
       });
-  }
+  };
 
   render() {
     return (
@@ -79,7 +84,9 @@ class Login extends Component {
           <form>
             <div className="field">
               {/* eslint-disable-next-line jsx-a11y/label-has-for */}
-              <label htmlFor="email" className="label">Email</label>
+              <label htmlFor="email" className="label">
+                Email
+              </label>
               <p className="control has-icons-left">
                 <Input
                   className="input"
@@ -94,7 +101,9 @@ class Login extends Component {
             </div>
             <LastField className="field">
               {/* eslint-disable-next-line jsx-a11y/label-has-for */}
-              <label htmlFor="password" className="label">Password</label>
+              <label htmlFor="password" className="label">
+                Password
+              </label>
               <p className="control has-icons-left">
                 <Input
                   className="input"

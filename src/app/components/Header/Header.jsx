@@ -14,11 +14,14 @@ const SCROLL_THROTTLE_MS = 100;
 const SCROLL_THRESHOLD_PX = 80;
 
 const Nav = styled.nav`
-  background-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.black)};
+  background-color: ${props =>
+    props.transparent ? 'transparent' : props.theme.colors.black};
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.purple)};
-  transition: ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
+  border-bottom-color: ${props =>
+    props.transparent ? 'transparent' : props.theme.colors.purple};
+  transition: ${props => props.theme.transition.duration}
+    ${props => props.theme.transition.easing};
 `;
 
 const LogoHeader = styled.h1`
@@ -30,12 +33,17 @@ const Logo = styled.img`
 `;
 
 const Burger = styled.div`
-  color: ${props => (props.transparent ? props.theme.colors.blackTransparent : props.theme.colors.white)};
+  color: ${props =>
+    props.transparent
+      ? props.theme.colors.blackTransparent
+      : props.theme.colors.white};
   height: auto;
-  transition: all ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
+  transition: all ${props => props.theme.transition.duration}
+    ${props => props.theme.transition.easing};
 
   &:hover {
-    color: ${props => (props.transparent ? props.theme.colors.white : props.theme.colors.purple)};
+    color: ${props =>
+      props.transparent ? props.theme.colors.white : props.theme.colors.purple};
   }
 `;
 
@@ -44,7 +52,8 @@ const NavMenu = styled.div`
 
   @media screen and (max-width: 1087px) {
     &.is-active {
-      background-color: ${props => (props.transparent ? 'transparent' : props.theme.colors.purple)};
+      background-color: ${props =>
+        props.transparent ? 'transparent' : props.theme.colors.purple};
       display: inline-block;
       position: absolute;
       right: 0;
@@ -110,7 +119,9 @@ class Header extends Component {
           </Link>
           <Burger
             role="button"
-            className={classnames('navbar-burger', { 'is-active': this.state.burgerOpen })}
+            className={classnames('navbar-burger', {
+              'is-active': this.state.burgerOpen,
+            })}
             aria-label="menu"
             aria-expanded="false"
             transparent={isTransparent}
@@ -123,13 +134,19 @@ class Header extends Component {
           </Burger>
         </div>
         <NavMenu
-          className={classnames('navbar-menu', { 'is-active': this.state.burgerOpen })}
+          className={classnames('navbar-menu', {
+            'is-active': this.state.burgerOpen,
+          })}
           transparent={isTransparent}
         >
           <div className="navbar-start" />
           <div className="navbar-end">
             {this.props.store.social.sortedLinks.map(link => (
-              <SocialLink key={link.id} link={link} transparent={isTransparent} />
+              <SocialLink
+                key={link.id}
+                link={link}
+                transparent={isTransparent}
+              />
             ))}
           </div>
         </NavMenu>

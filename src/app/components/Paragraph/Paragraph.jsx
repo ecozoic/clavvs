@@ -17,12 +17,8 @@ const Text = styled.p`
 
 const Paragraph = ({ header, text }) => (
   <Container>
-    {header &&
-      <Header>{header}</Header>
-    }
-    {text &&
-      <Text>{text}</Text>
-    }
+    {header && <Header>{header}</Header>}
+    {text && <Text>{text}</Text>}
   </Container>
 );
 

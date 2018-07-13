@@ -9,14 +9,15 @@ import Login from '../Login';
 @inject('adminStore')
 @observer
 class Authenticate extends Component {
+  unsubscribe = null;
+
   static propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     adminStore: PropTypes.object.isRequired,
   };
 
-
   componentDidMount() {
-    this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    this.unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.props.adminStore.auth.setUser(user);
       } else {
@@ -30,8 +31,6 @@ class Authenticate extends Component {
       this.unsubscribe();
     }
   }
-
-  unsubscribe = null;
 
   render() {
     const user = this.props.adminStore.auth.getUser();

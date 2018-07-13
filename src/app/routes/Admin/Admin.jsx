@@ -1,16 +1,10 @@
 import React from 'react';
-import { Provider } from 'mobx-react';
 import 'firebase/auth';
 
-import AdminStore from '../../store/admin';
-import Authenticate from '../../components/admin/Authenticate';
+// TODO: init admin reducers/epics since we are code-split
 
-const store = new AdminStore();
+import Authenticate from '../../components/Authenticate';
 
-const Admin = () => (
-  <Provider adminStore={store}>
-    <Authenticate />
-  </Provider>
-);
+const Admin = () => <Authenticate />;
 
 export default Admin;

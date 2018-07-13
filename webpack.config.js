@@ -1,108 +1,92 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const Dotenv = require('dotenv-webpack');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const Dotenv = require("dotenv-webpack");
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === "production";
 
 // TODO: browserlist, optimize babel-preset-env, polyfill
 
-const devPlugins = [
-  new webpack.HotModuleReplacementPlugin(),
-];
+const devPlugins = [new webpack.HotModuleReplacementPlugin()];
 
 const prodPlugins = [
   new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-    reportFilename: '../reports/bundle.html',
-    defaultSizes: 'parsed',
+    analyzerMode: "static",
+    reportFilename: "../reports/bundle.html",
+    defaultSizes: "parsed",
     openAnalyzer: false,
     generateStatsFile: false,
-    logLevel: 'info',
+    logLevel: "info"
   }),
-  new webpack.HashedModuleIdsPlugin(),
+  new webpack.HashedModuleIdsPlugin()
 ];
 
 const commonPlugins = [
   new HtmlWebpackPlugin({
-    template: 'src/index.html',
-    favicon: 'src/favicon.ico',
+    template: "src/index.html",
+    favicon: "src/favicon.ico"
   }),
   new Dotenv({
     safe: true,
-    systemvars: true,
-  }),
+    systemvars: true
+  })
 ];
 
 const plugins = commonPlugins.concat(isProduction ? prodPlugins : devPlugins);
 
 module.exports = {
-  mode: isProduction ? 'production' : 'development',
+  mode: isProduction ? "production" : "development",
 
-  entry: './src/index',
+  entry: "./src/index",
 
   output: {
-    filename: isProduction ? 'app.[chunkhash:8].js' : 'app.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    filename: isProduction ? "app.[chunkhash:8].js" : "app.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/"
   },
 
   module: {
     rules: [
       {
-        enforce: 'pre',
+        enforce: "pre",
         test: /\.jsx?/,
-        include: [
-          path.resolve(__dirname, 'src'),
-        ],
-        use: [
-          'eslint-loader',
-          'stylelint-custom-processor-loader',
-        ],
+        include: [path.resolve(__dirname, "src")],
+        use: ["eslint-loader", "stylelint-custom-processor-loader"]
       },
       {
         test: /\.jsx?/,
-        include: [
-          path.resolve(__dirname, 'src'),
-        ],
-        loader: 'babel-loader',
+        include: [path.resolve(__dirname, "src")],
+        loader: "babel-loader",
         options: {
-          cacheDirectory: true,
-        },
+          cacheDirectory: true
+        }
       },
       {
         test: /\.(png|jpg)/,
-        include: [
-          path.resolve(__dirname, 'src'),
-        ],
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: isProduction ? '[name].[hash:8].[ext]' : '[name].[ext]',
-              outputPath: 'images/',
-            },
-          },
-          isProduction ? 'image-webpack-loader' : undefined,
-        ].filter(l => !!l),
-      },
-    ],
+        include: [path.resolve(__dirname, "src")],
+        loader: "file-loader",
+        options: {
+          name: isProduction ? "[name].[hash:8].[ext]" : "[name].[ext]",
+          outputPath: "images/"
+        }
+      }
+    ]
   },
 
   resolve: {
-    extensions: ['.js', '.json', '.jsx'],
+    extensions: [".js", ".json", ".jsx"]
   },
 
   optimization: {
     splitChunks: {
-      chunks: 'all',
-    },
+      chunks: "all"
+    }
   },
 
-  devtool: isProduction ? 'source-map' : 'eval',
+  devtool: isProduction ? "source-map" : "eval",
 
   bail: isProduction,
 
@@ -110,8 +94,8 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     hot: true,
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 8080
   },
 
-  plugins,
+  plugins
 };

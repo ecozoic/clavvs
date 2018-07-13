@@ -4,7 +4,8 @@ import { sortBy } from 'lodash-es';
 class SectionStore {
   @observable sections = [];
 
-  @computed get sortedSections() {
+  @computed
+  get sortedSections() {
     const sections = sortBy(this.sections, 'sortIndex');
 
     return sections.map(section => ({
@@ -20,16 +21,18 @@ class SectionStore {
 
   @action('replace sections')
   replaceSections(newSections) {
-    this.sections.replace(newSections.map((newSection) => {
-      if (newSection.contents) {
-        return newSection;
-      }
+    this.sections.replace(
+      newSections.map(newSection => {
+        if (newSection.contents) {
+          return newSection;
+        }
 
-      return {
-        ...newSection,
-        contents: [],
-      };
-    }));
+        return {
+          ...newSection,
+          contents: [],
+        };
+      }),
+    );
   }
 
   @action('add section')

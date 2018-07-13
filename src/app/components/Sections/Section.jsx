@@ -21,7 +21,7 @@ class Section extends Component {
   static propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     section: PropTypes.object.isRequired,
-  }
+  };
 
   render() {
     return (

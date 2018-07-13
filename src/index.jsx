@@ -1,11 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { configure } from 'mobx';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import App from './app';
-import Store from './app/store';
 import baseStyles from './styles';
 import { mapDocToObject } from './app/util';
 
@@ -14,11 +12,6 @@ import { mapDocToObject } from './app/util';
 
 // load global css
 baseStyles();
-
-// init mobx
-configure({ computedRequiresReaction: true, enforceActions: true });
-
-const store = new Store();
 
 // init firebase
 // TODO: sections/widgets
@@ -38,8 +31,8 @@ db.settings({ timestampsInSnapshots: true });
 
 db.collection('footer-links')
   .where('enabled', '==', true)
-  .onSnapshot((querySnapshot) => {
-    querySnapshot.docChanges().forEach((change) => {
+  .onSnapshot(querySnapshot => {
+    querySnapshot.docChanges().forEach(change => {
       if (change.type === 'added') {
         store.footer.addLink(mapDocToObject(change.doc));
       } else if (change.type === 'modified') {
@@ -52,8 +45,8 @@ db.collection('footer-links')
 
 db.collection('socials')
   .where('enabled', '==', true)
-  .onSnapshot((querySnapshot) => {
-    querySnapshot.docChanges().forEach((change) => {
+  .onSnapshot(querySnapshot => {
+    querySnapshot.docChanges().forEach(change => {
       if (change.type === 'added') {
         store.social.addLink(mapDocToObject(change.doc));
       } else if (change.type === 'modified') {
@@ -66,8 +59,8 @@ db.collection('socials')
 
 db.collection('hero-links')
   .where('enabled', '==', true)
-  .onSnapshot((querySnapshot) => {
-    querySnapshot.docChanges().forEach((change) => {
+  .onSnapshot(querySnapshot => {
+    querySnapshot.docChanges().forEach(change => {
       if (change.type === 'added') {
         store.hero.addLink(mapDocToObject(change.doc));
       } else if (change.type === 'modified') {
@@ -82,31 +75,34 @@ const contentSubcollectionSubscriptions = {};
 
 db.collection('sections')
   .where('enabled', '==', true)
-  .onSnapshot((querySnapshot) => {
-    querySnapshot.docChanges().forEach((change) => {
+  .onSnapshot(querySnapshot => {
+    querySnapshot.docChanges().forEach(change => {
       if (change.type === 'added') {
         const sectionId = change.doc.id;
 
         // subscribe to subcollection
         if (!contentSubcollectionSubscriptions[sectionId]) {
-          contentSubcollectionSubscriptions[sectionId] =
-            change.doc.ref.collection('contents')
-              .where('enabled', '==', true)
-              .onSnapshot((contentQuerySnapshot) => {
-                contentQuerySnapshot.docChanges().forEach((contentChange) => {
-                  if (contentChange.type === 'added') {
-                    store.section.addContent(sectionId, mapDocToObject(contentChange.doc));
-                  } else if (contentChange.type === 'modified') {
-                    store.section.updateContent(
-                      sectionId,
-                      contentChange.doc.id,
-                      mapDocToObject(contentChange.doc),
-                    );
-                  } else if (contentChange.type === 'removed') {
-                    store.section.removeContent(sectionId, contentChange.doc.id);
-                  }
-                });
+          contentSubcollectionSubscriptions[sectionId] = change.doc.ref
+            .collection('contents')
+            .where('enabled', '==', true)
+            .onSnapshot(contentQuerySnapshot => {
+              contentQuerySnapshot.docChanges().forEach(contentChange => {
+                if (contentChange.type === 'added') {
+                  store.section.addContent(
+                    sectionId,
+                    mapDocToObject(contentChange.doc),
+                  );
+                } else if (contentChange.type === 'modified') {
+                  store.section.updateContent(
+                    sectionId,
+                    contentChange.doc.id,
+                    mapDocToObject(contentChange.doc),
+                  );
+                } else if (contentChange.type === 'removed') {
+                  store.section.removeContent(sectionId, contentChange.doc.id);
+                }
               });
+            });
         }
 
         store.section.addSection(mapDocToObject(change.doc));
@@ -124,7 +120,4 @@ db.collection('sections')
     });
   });
 
-render(
-  <App store={store} />,
-  document.getElementById('app'),
-);
+render(<App store={store} />, document.getElementById('app'));

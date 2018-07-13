@@ -13,7 +13,8 @@ const ButtonLink = styled.a`
   padding: ${props => props.theme.scale.normal}rem;
   text-align: center;
   text-transform: uppercase;
-  transition: all ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
+  transition: all ${props => props.theme.transition.duration}
+    ${props => props.theme.transition.easing};
   user-select: none;
 
   &:hover {

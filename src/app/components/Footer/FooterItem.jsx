@@ -14,7 +14,8 @@ const FooterListContent = styled.p`
 
 const FooterListLink = styled.a`
   color: ${props => props.theme.colors.white};
-  transition: color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
+  transition: color ${props => props.theme.transition.duration}
+    ${props => props.theme.transition.easing};
 
   &:hover {
     color: ${props => props.theme.colors.purple};

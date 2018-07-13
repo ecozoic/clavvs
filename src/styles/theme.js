@@ -8,9 +8,15 @@ export default {
     gray: '#666',
     white: '#fff',
     black,
-    blackTransparent: color(black).alpha(0.8).rgb().string(),
+    blackTransparent: color(black)
+      .alpha(0.8)
+      .rgb()
+      .string(),
     purple,
-    purpleTransparent: color(purple).alpha(0.25).rgb().string(),
+    purpleTransparent: color(purple)
+      .alpha(0.25)
+      .rgb()
+      .string(),
   },
   font: {
     family: '"Open Sans", sans-serif',

@@ -9,7 +9,8 @@ const SocialListItem = styled.div`
 
   & > a {
     color: ${props => props.theme.colors.white};
-    transition: color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
+    transition: color ${props => props.theme.transition.duration}
+      ${props => props.theme.transition.easing};
 
     &:hover {
       color: ${props => props.theme.colors.purple};
@@ -22,7 +23,7 @@ class SocialLink extends Component {
   static propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     link: PropTypes.object.isRequired,
-  }
+  };
   render() {
     return (
       <SocialListItem className="column">

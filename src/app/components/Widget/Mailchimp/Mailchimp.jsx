@@ -24,12 +24,7 @@ const Header = styled.h2`
 `;
 
 const Mailchimp = props => (
-  <form
-    action={props.action}
-    method="post"
-    target="_blank"
-    noValidate
-  >
+  <form action={props.action} method="post" target="_blank" noValidate>
     <Header>{props.header}</Header>
     <InputField className="field">
       <p className="control has-icons-left">
