@@ -46,3 +46,9 @@ export const clearNormalizedCollection = collection => ({
   byId: {},
   allIds: [],
 });
+
+export const getItemsFromNormalizedCollection = collection =>
+  collection.allIds.map(id => collection.byId[id]);
+
+export const getItemFromNormalizedCollection = (collection, id) =>
+  collection.byId[id];

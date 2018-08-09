@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, AUTH_ERROR } from './actions';
+import { LOGIN, LOGOUT, ERROR } from './actions';
 
 export const INITIAL_STATE = {
   user: null,
@@ -19,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
         user: null,
         error: null,
       };
-    case AUTH_ERROR:
+    case ERROR:
       return {
         ...state,
         user: null,
