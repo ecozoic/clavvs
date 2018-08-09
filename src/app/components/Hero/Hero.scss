@@ -4,7 +4,7 @@
 .hero {
   @include page;
   align-items: center;
-  background: url('../../../images/clavvs_single.png') no-repeat center / cover;
+  background: url('../../../images/clavvs_bk.jpg') no-repeat center / cover;
   border-bottom: 1px solid $purple;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   width: 100%;
 
   @include mobile {
-    background-position-x: 75%;
+    background-position-x: 60%;
     padding-bottom: 40px;
   }
 

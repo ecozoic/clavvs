@@ -12,6 +12,12 @@ const Footer = () => (
         </p>
       </li>
       <li>
+        <h2>licensing</h2>
+        <p>
+          <a href="mailto:syncteam@terrorbird.com">Terrorbird Media</a>
+        </p>
+      </li>
+      <li>
         <h2>website</h2>
         <p>
           <a href="https://github.com/ecozoic">ecozoic</a>
